@@ -11,6 +11,7 @@ main {
     height: 200px;
     overflow: hidden;
     position: relative; /* Ajouté pour une gestion de position correcte dans certains cas */
+    background-color: red;
 }
 
 .imageContainer img {
