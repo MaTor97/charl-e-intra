@@ -1,0 +1,15 @@
+footer {
+    position: fixed;
+        bottom: 0;
+    background-color: $bckgd;
+    width: 100%;
+    color: $text-color-one;
+    height: 3rem;
+    justify-content: space-around;
+    display: flex;
+
+    .cont {
+        margin: 2px;
+        padding: 3px;
+    }
+}

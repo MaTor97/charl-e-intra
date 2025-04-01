@@ -1,0 +1,22 @@
+nav {
+    overflow-x: scroll;
+    background-color: $primary-color;
+    scrollbar-width: none;
+
+    ul {
+        display: flex;
+        padding: .5rem 0;
+        flex-wrap: nowrap;
+
+        li {
+            font-weight: 900;
+            color: white;
+            list-style: none;
+            margin: auto 1rem;
+            width: auto;
+            white-space: nowrap;
+            font-family: 'Roboto', sans-serif;
+            font-size: 36px;
+        }
+    }
+}
