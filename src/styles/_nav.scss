@@ -2,7 +2,7 @@ nav {
     overflow-x: scroll;
     background-color: $primary-color;
     scrollbar-width: none;
-    position: fixed;
+    position: absolute;
     top: 6rem; // Directement sous le header
     left: 0;
     width: 100%;
