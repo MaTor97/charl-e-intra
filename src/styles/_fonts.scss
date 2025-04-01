@@ -1,0 +1,61 @@
+@font-face {
+    font-family: 'TStarProBold';
+    src: url('../assets/fonts/TStarProBold.ttf') format('truetype');
+  }
+  
+  @font-face {
+    font-family: 'TStarProBoldItalic';
+    src: url('../assets/fonts/TStarProBoldItalic.ttf') format('truetype');
+  }
+  
+  @font-face {
+    font-family: 'TStarProHeavy';
+    src: url('../assets/fonts/TStarProHeavy.ttf') format('truetype');
+  }
+  
+  @font-face {
+    font-family: 'TStarProHeavyItalic';
+    src: url('../assets/fonts/TStarProHeavyItalic.ttf') format('truetype');
+  }
+  
+  @font-face {
+    font-family: 'TStarProLight';
+    src: url('../assets/fonts/TStarProLight.ttf') format('truetype');
+  }
+  
+  @font-face {
+    font-family: 'TStarProLightItalic';
+    src: url('../assets/fonts/TStarProLightItalic.ttf') format('truetype');
+  }
+  
+  @font-face {
+    font-family: 'TStarProMedium';
+    src: url('../assets/fonts/TStarProMedium.ttf') format('truetype');
+  }
+  
+  @font-face {
+    font-family: 'TStarProMediumItalic';
+    src: url('../assets/fonts/TStarProMediumItalic.ttf') format('truetype');
+  }
+  
+  @font-face {
+    font-family: 'TStarProRegular';
+    src: url('../assets/fonts/TStarProRegular.ttf') format('truetype');
+  }
+  
+  @font-face {
+    font-family: 'TStarProRegularItalic';
+    src: url('../assets/fonts/TStarProRegularItalic.ttf') format('truetype');
+  }
+  
+// Variables SCSS pour les polices
+$font-tstarpro-bold: 'TStarProBold';
+$font-tstarpro-bold-italic: 'TStarProBoldItalic';
+$font-tstarpro-heavy: 'TStarProHeavy';
+$font-tstarpro-heavy-italic: 'TStarProHeavyItalic';
+$font-tstarpro-light: 'TStarProLight';
+$font-tstarpro-light-italic: 'TStarProLightItalic';
+$font-tstarpro-medium: 'TStarProMedium';
+$font-tstarpro-medium-italic: 'TStarProMediumItalic';
+$font-tstarpro-regular: 'TStarProRegular';
+$font-tstarpro-regular-italic: 'TStarProRegularItalic';
