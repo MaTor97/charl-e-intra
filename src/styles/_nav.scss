@@ -7,7 +7,7 @@ nav {
     left: 0;
     width: 100%;
     z-index: 199;
-    transition: transform 0.3s;
+    transition: top .3s;
 
     ul {
         display: flex;
@@ -29,5 +29,5 @@ nav {
 
 // Appliquer la classe "hidden" aussi au nav
 .hidden {
-    transform: translateY(-2.5rem);
+    top: 0;
 }
