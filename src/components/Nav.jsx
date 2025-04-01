@@ -1,20 +1,20 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 const Nav = () => {
     const [hidden, setHidden] = useState(false);
-    let lastScrollY = 0;
+    const lastScrollY = useRef(0); // Utilisation de useRef
 
     useEffect(() => {
         const handleScroll = () => {
             const currentScrollY = window.scrollY;
 
-            if (currentScrollY > lastScrollY) {
-                setHidden(true);
-            } else {
-                setHidden(false);
+            if (currentScrollY > lastScrollY.current + 10) {
+                setHidden(true); // Scroll vers le bas
+            } else if (currentScrollY < lastScrollY.current - 10) {
+                setHidden(false); // Scroll vers le haut
             }
 
-            lastScrollY = currentScrollY;
+            lastScrollY.current = currentScrollY; // Met à jour la position
         };
 
         window.addEventListener("scroll", handleScroll);
