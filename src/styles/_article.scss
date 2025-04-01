@@ -1,11 +1,10 @@
 main {
-    position: absolute;
+    position: sticky;
     width: 100%;
-    height: 100vh;
+    height: auto;
     margin: 0 auto;
     padding: 1rem;
     box-sizing: border-box;
-    overflow: scroll;
     padding-bottom: 4rem;
     scrollbar-width: none;
     
