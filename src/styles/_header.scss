@@ -10,7 +10,7 @@ header {
     position: relative;
     top: 0;
     left: 0;
-    transition: display .3s;
+    transition: transform 0.3s;
     align-items: center;
     z-index: 100;
 
@@ -30,5 +30,5 @@ header {
 
 // Quand on scroll vers le bas, cacher le header
 .hidden {
-    display: none;
+    transform: translateY(-100%);
 }
