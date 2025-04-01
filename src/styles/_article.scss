@@ -2,23 +2,23 @@ main {
     width: 100%;
     margin: 0 auto;
     padding: 0 1rem;
-    overflow-x: hidden;
-    box-sizing: border-box; /* S'assurer que les paddings sont pris en compte dans la largeur */
-}
-
-.imageContainer {
-    width: 100%;
-    height: 200px;
-    overflow: hidden;
-    position: relative; /* Ajouté pour une gestion de position correcte dans certains cas */
-    background-color: red;
-}
-
-.imageContainer img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Permet à l'image de couvrir l'espace sans la déformer */
-    position: absolute; /* Permet de contrôler mieux le positionnement de l'image si nécessaire */
-    top: 0;
-    left: 0;
-}
+    overflow-x: hidden;  /* Empêche le débordement horizontal */
+    box-sizing: border-box; /* Inclut les paddings dans les dimensions */
+  
+    .imageContainer {
+      width: 100%;
+      height: 200px;
+      overflow: hidden;  /* Cache ce qui dépasse */
+      position: relative;
+      background-color: red;
+      border: 1px solid black;
+  
+      img {
+        width: 100%;  /* Assure que l'image ne dépasse pas la largeur du conteneur */
+        height: 100%;  /* Remplie la hauteur du conteneur */
+        object-fit: cover;  /* Couvre l'espace sans déformation */
+        max-width: 100%;  /* Empêche l'image de dépasser */
+      }
+    }
+  }
+  
