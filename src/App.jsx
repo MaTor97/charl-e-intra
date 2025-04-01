@@ -9,7 +9,7 @@ function App() {
 
   return (
     <body>
-      <Header className='dark'/>
+      <Header />
       <Nav />
       <Footer />
     </body>
