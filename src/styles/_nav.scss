@@ -3,7 +3,7 @@ nav {
     background-color: $primary-color;
     scrollbar-width: none;
     position: sticky;
-    top: 96px;
+    top: 0;
     left: 0;
     width: 100%;
     z-index: 199;
@@ -27,7 +27,3 @@ nav {
     }
 }
 
-// Appliquer la classe "hidden" aussi au nav
-.hidden {
-    transform: translateY(-96px);
-}
