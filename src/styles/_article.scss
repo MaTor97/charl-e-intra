@@ -12,7 +12,8 @@ main {
       overflow: hidden;  /* Cache ce qui dépasse */
       position: relative;
       background-color: red;
-      border: 5px solid black; /* Affiche la bordure */
+      border: 2px solid black; /* Affiche la bordure */
+      border-radius: 20px;
       z-index: 1000;
   
       img {
