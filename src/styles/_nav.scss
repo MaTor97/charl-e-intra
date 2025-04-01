@@ -2,7 +2,7 @@ nav {
     overflow-x: scroll;
     background-color: $primary-color;
     scrollbar-width: none;
-    position: relative;
+    position: sticky;
     top: 0;
     left: 0;
     width: 100%;
