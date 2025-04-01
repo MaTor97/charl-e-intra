@@ -1,6 +1,6 @@
 nav {
     overflow-x: scroll;
-    background-color: $primary-color;
+    background-color: var(--primary-color);
     scrollbar-width: none;
     position: sticky;
     top: 0;

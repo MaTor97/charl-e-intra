@@ -1,6 +1,6 @@
 header {
-    background-color: $bckgd;
-    color: $text-color-one;
+    background-color: var(--bckgd);
+    color: var(--text-color-one);
     padding: 20px 50px;
     justify-content: space-between;
     width: 100%;
@@ -14,15 +14,17 @@ header {
     z-index: 100;
 
     .logoMode {
-        width: 10rem;
+        display: flex;
+        width: 5rem;
         justify-content: space-between;
 
         img {
             height: 4rem;
         }
 
-        svg {
-            margin: 10px 30px;
+        .toggleMode {
+            margin: 1rem;
         }
+
     }
 }

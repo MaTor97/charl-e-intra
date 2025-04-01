@@ -1,19 +1,24 @@
-import React from "react";
-import logo from "../assets/images/C_logo_black.png";
-import { DarkModeSVG, SearchSVG } from "../assets/files/SVG";
+import React from "react"
+import logo from "../assets/images/C_logo_black.png"
+import Darklogo from "../assets/images/C_logo_white.png"
+import { DarkModeSVG, LightModeSVG, SearchSVG, DarkSearchSVG } from "../assets/files/SVG"
 
-const Header = () => {
-    
-
-    return (
-        <header>
-            <div className="logoMode">
-                <img src={logo} alt="Logo" className="logo"/>
-                <DarkModeSVG />
-            </div>
-            <SearchSVG />
-        </header>
-    );
+const Header = ({ bodyMode, toggleMode }) => {
+  return (
+    <header>
+      <div className="logoMode">
+        {bodyMode === "light" ? 
+          <img src={logo} alt="Logo" className="logo" />
+        : <img src={Darklogo} alt="Logo" className="logo" />}
+        <div onClick={toggleMode} style={{ cursor: "pointer" }} className="toggleMode">
+          {bodyMode === "light" ? <DarkModeSVG /> : <LightModeSVG />}
+        </div>
+      </div>
+      {bodyMode === "light" ? 
+          <SearchSVG />
+        : <DarkSearchSVG />}
+    </header>
+  )
 }
 
-export default Header;
+export default Header

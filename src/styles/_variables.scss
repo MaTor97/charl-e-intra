@@ -1,4 +1,12 @@
-$bckgd: #fff;
-$text-color-one: #000;
-$primary-color: #3498db;
-
+:root {
+    --bckgd: #fff;
+    --text-color-one: #000;
+    --primary-color: #3498db;
+  }
+  
+  body.dark {
+    --bckgd: #121212;
+    --text-color-one: #fff;
+    --primary-color: #ff7300;
+  }
+  

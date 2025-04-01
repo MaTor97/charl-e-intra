@@ -1,9 +1,9 @@
 footer {
     position: fixed;
         bottom: 0;
-    background-color: $bckgd;
+    background-color: var(--bckgd);
     width: 100%;
-    color: $text-color-one;
+    color: var(--text-color-one);
     justify-content: space-around;
     display: flex;
     padding: 5px

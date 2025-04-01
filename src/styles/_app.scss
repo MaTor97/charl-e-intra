@@ -8,6 +8,8 @@ body {
     height: 100%;
     width: 100%;
     position: relative;
+    background-color: var(--bckgd);
+    color: var(--text-color-one);
 }
 
 body::before {
