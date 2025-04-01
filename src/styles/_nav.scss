@@ -2,8 +2,12 @@ nav {
     overflow-x: scroll;
     background-color: $primary-color;
     scrollbar-width: none;
-    position: sticky;
-        top: 6rem;
+    position: fixed;
+    top: 6rem; // Directement sous le header
+    left: 0;
+    width: 100%;
+    z-index: 199;
+    transition: transform 0.3s ease-in-out;
 
     ul {
         display: flex;
@@ -21,4 +25,9 @@ nav {
             font-size: 36px;
         }
     }
+}
+
+// Appliquer la classe "hidden" aussi au nav
+.hidden {
+    transform: translateY(-100%);
 }

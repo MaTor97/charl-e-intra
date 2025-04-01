@@ -11,9 +11,9 @@ const Header = () => {
             const currentScrollY = window.scrollY;
 
             if (currentScrollY > lastScrollY) {
-                setHidden(true);  // Scroll vers le bas → Cacher le header
+                setHidden(true);  // Scroll vers le bas → Cacher header et nav
             } else {
-                setHidden(false); // Scroll vers le haut → Réafficher le header
+                setHidden(false); // Scroll vers le haut → Réafficher
             }
 
             lastScrollY = currentScrollY;
@@ -24,13 +24,15 @@ const Header = () => {
     }, []);
 
     return (  
-        <header className={hidden ? "hidden" : ""}>
-            <div className="logoMode">
-                <img src={logo} alt="Logo" className="logo"/>
-                <DarkModeSVG />
-            </div>
-            <SearchSVG />
-        </header>
+        <>
+            <header className={hidden ? "hidden" : ""}>
+                <div className="logoMode">
+                    <img src={logo} alt="Logo" className="logo"/>
+                    <DarkModeSVG />
+                </div>
+                <SearchSVG />
+            </header>
+        </>
     );
 }
 

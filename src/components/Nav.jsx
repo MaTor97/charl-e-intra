@@ -1,8 +1,28 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 const Nav = () => {
+    const [hidden, setHidden] = useState(false);
+    let lastScrollY = 0;
+
+    useEffect(() => {
+        const handleScroll = () => {
+            const currentScrollY = window.scrollY;
+
+            if (currentScrollY > lastScrollY) {
+                setHidden(true);
+            } else {
+                setHidden(false);
+            }
+
+            lastScrollY = currentScrollY;
+        };
+
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
+
     return (
-        <nav>
+        <nav className={hidden ? "hidden" : ""}>
             <ul>
                 <li>NEWS</li>
                 <li>APPELS ET PROMOTIONS</li>
