@@ -4,27 +4,27 @@ main {
     height: auto;
     margin: 0 auto;
     padding: 1rem;
-    overflow-x: hidden;  /* Empêche le débordement horizontal */
-    box-sizing: border-box; /* Inclut les paddings dans les dimensions */
+    overflow-x: hidden;  
+    box-sizing: border-box;
   
     .imageContainer {
-      width: 100%;  /* Donne une largeur complète pour que l'image prenne l'espace disponible */
+      width: 100%; 
       height: 200px;
-      overflow: hidden;  /* Cache ce qui dépasse */
+      overflow: hidden;  
       position: relative;
       background-color: red;
-      border: 2px solid black; /* Affiche la bordure */
+      border: 2px solid black; 
       border-radius: 20px;
       z-index: 1000;
   
       img {
-        width: 100%;  /* Assure que l'image ne dépasse pas la largeur du conteneur */
-        height: auto;  /* Garde la hauteur de l'image proportionnelle */
-        object-fit: cover;  /* Couvre l'espace sans déformation */
-        max-width: 100%;  /* Empêche l'image de dépasser */
-        position: absolute;  /* Place l'image de manière absolue */
-        top: 0;  /* L'image commence du haut du conteneur */
-        left: 0;  /* L'image commence de la gauche du conteneur */
+        width: 100%;
+        height: auto;
+        object-fit: cover; 
+        max-width: 100%;
+        position: absolute; 
+        bottom: 0;
+        right: 0;
       }
     }
   }
