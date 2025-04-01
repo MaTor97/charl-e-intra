@@ -46,9 +46,9 @@ export const ArrowLeftSVG = () => {
             <path 
                 d="M38 24H10M10 24L24 38M10 24L24 10" 
                 stroke="black" 
-                stroke-width="4" 
-                stroke-linecap="round" 
-                stroke-linejoin="round"
+                strokeWidth="4" 
+                strokeLinecap="round" 
+                strokeLinejoin="round"
                 />
         </svg>
     );
@@ -83,9 +83,9 @@ export const InfoMenuSVG = () => {
             <path 
                 d="M24 32V24M24 16H24.02M44 24C44 35.0457 35.0457 44 24 44C12.9543 44 4 35.0457 4 24C4 12.9543 12.9543 4 24 4C35.0457 4 44 12.9543 44 24Z" 
                 stroke="#4F98FF" 
-                stroke-width="4" 
-                stroke-linecap="round" 
-                stroke-linejoin="round"
+                strokeWidth="4" 
+                strokeLinecap="round" 
+                strokeLinejoin="round"
                 />
         </svg>
     );
