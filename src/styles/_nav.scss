@@ -2,6 +2,8 @@ nav {
     overflow-x: scroll;
     background-color: $primary-color;
     scrollbar-width: none;
+    position: sticky;
+        top: 6rem;
 
     ul {
         display: flex;
