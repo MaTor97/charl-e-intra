@@ -3,10 +3,21 @@ main {
     margin: 0 auto;
     padding: 0 1rem;
     overflow-x: hidden;
+    box-sizing: border-box; /* S'assurer que les paddings sont pris en compte dans la largeur */
+}
 
-    img{
-        position: relative;
-        width: 50px;
-        height: auto;
-    }
+.imageContainer {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    position: relative; /* Ajouté pour une gestion de position correcte dans certains cas */
+}
+
+.imageContainer img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Permet à l'image de couvrir l'espace sans la déformer */
+    position: absolute; /* Permet de contrôler mieux le positionnement de l'image si nécessaire */
+    top: 0;
+    left: 0;
 }
