@@ -10,7 +10,7 @@ header {
     position: absolute;
     top: 0;
     left: 0;
-    transition: transform .3s; // Animation fluide
+    transition: top .3s;
     align-items: center;
     z-index: 100;
 
@@ -30,5 +30,5 @@ header {
 
 // Quand on scroll vers le bas, cacher le header
 .hidden {
-    transform: translateY(-96px);
+    top: -96px;
 }
