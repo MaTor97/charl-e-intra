@@ -3,11 +3,23 @@ main {
     width: 100%;
     height: auto;
     margin: 0 auto;
-    padding: 2rem 4rem;
+    padding: 1rem 0;
     overflow: hidden;
     box-sizing: border-box;
     padding-bottom: 4rem;
     scrollbar-width: none;
     
+    .imageContainer {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        margin: 0 auto;
+        padding: 0;
+        overflow: hidden;
+        box-sizing: border-box;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
   }
   
