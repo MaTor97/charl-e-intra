@@ -5,8 +5,7 @@ footer {
     width: 100%;
     justify-content: space-around;
     display: flex;
-    padding: 10px;
-
+    
     .cont {
         color: var(--text-color-one);
         text-align: center;
@@ -20,7 +19,7 @@ footer {
         align-items: center;
         justify-content: flex-end;
         padding: 3px;
-
+        margin: 5px;
 
         p {
             font-family: $font-tstarpro-bold;
