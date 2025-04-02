@@ -2,10 +2,12 @@ import { useState, useEffect } from 'react'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import Nav from './components/Nav'
-import Article from './components/FakeArticle'
+import Content from './components/Content'
 import './styles/main.scss'
 
 function App() {
+  const page = 'Article'
+
   const [bodyMode, setBodyMode] = useState(() => {
     return document.body.classList.contains('dark') ? 'dark' : 'light'
   })
@@ -25,10 +27,10 @@ function App() {
 
   return (
     <>
-      <Header bodyMode={bodyMode} toggleMode={toggleMode} />
-      <Nav bodyMode={bodyMode}/>
-      <Article bodyMode={bodyMode}/>
-      <Footer bodyMode={bodyMode}/>
+      <Header  />
+      <Nav />
+      <Content page={page} />
+      <Footer bodyMode={bodyMode} toggleMode={toggleMode} />
     </>
   )
 }

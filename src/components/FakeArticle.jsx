@@ -1,4 +1,3 @@
-import React from "react";
 import ArticleImage from "../assets/images/remote.jpg";
 
 const Article = () => {

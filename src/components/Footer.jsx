@@ -1,24 +1,29 @@
-import React from "react";
-import { ArrowLeftSVG, NotificationSVG, InfoMenuSVG, DarkArrowLeftSVG, DarkNotificationSVG, DarkInfoMenuSVG } from "../assets/files/SVG";
+import { ArrowLeftSVG, NotificationSVG, InfoMenuSVG, DarkModeSVG, LightModeSVG } from "../assets/files/SVG";
 
 
-const Footer = ({ bodyMode }) => {
+const Footer = ({ bodyMode, toggleMode }) => {
     return (
         <footer>
             <div className="cont">
-                {bodyMode === "light" ? 
                   <ArrowLeftSVG />
-                : <DarkArrowLeftSVG />}
+                  <p>Retour</p>
             </div>
-            <div className="cont">
             {bodyMode === "light" ? 
+                  <div onClick={toggleMode} style={{ cursor: "pointer" }} className="cont">
+                        <DarkModeSVG />
+                        <p>Mode nuit</p>
+                  </div>
+            :     <div onClick={toggleMode} style={{ cursor: "pointer" }} className="cont">
+                        <LightModeSVG />
+                        <p>Mode jour</p>
+                  </div>}
+            <div className="cont">
                   <NotificationSVG />
-                : <DarkNotificationSVG />}
+                  <p>Notifications</p>
             </div>
             <div className="cont">
-            {bodyMode === "light" ? 
                   <InfoMenuSVG />
-                : <DarkInfoMenuSVG />}
+                  <p>Aide</p>
             </div>
         </footer>
     );

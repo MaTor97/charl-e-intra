@@ -3,8 +3,19 @@ footer {
         bottom: 0;
     background-color: var(--bckgd);
     width: 100%;
-    color: var(--text-color-one);
     justify-content: space-around;
     display: flex;
-    padding: 5px
+    padding: 5px;
+
+    .cont {
+        color: var(--text-color-one);
+        text-align: center;
+
+        p {
+            font-family: $font-tstarpro-bold;
+            font-size: 12px;
+            margin: 4px;
+        }
+    }
+
 }

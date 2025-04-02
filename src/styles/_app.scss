@@ -5,7 +5,7 @@
 }
 
 body {
-    height: 100%;
+    min-height: 100vh;
     width: 100%;
     position: relative;
     background-color: var(--bckgd);
@@ -22,7 +22,7 @@ body::before {
     background-image: url(../assets/images/bckgrnd.png);
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: right top;
+    background-position: left center;
     opacity: .5;
     z-index: -1; 
 }

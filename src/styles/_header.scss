@@ -15,16 +15,17 @@ header {
 
     .logoMode {
         display: flex;
-        width: 5rem;
+        width: auto;
         justify-content: space-between;
+        
+
 
         img {
             height: 4rem;
         }
+    }
 
-        .toggleMode {
-            margin: 1rem;
-        }
-
+    .icons {
+        color: var(--text-color-one);
     }
 }
