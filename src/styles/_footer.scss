@@ -12,14 +12,14 @@ footer {
         max-height: 79px;
         width: 79px;
         background-color: var(--secondary-color);
-        border-radius: 20px;
+        border-radius: 10px;
         justify-content: center;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: flex-end;
         padding: .2rem;
-        margin: .5rem;
+        margin: .3rem;
 
         p {
             font-family: $font-tstarpro-bold;
