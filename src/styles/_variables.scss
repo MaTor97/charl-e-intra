@@ -1,14 +1,15 @@
 :root {
     --bckgd: #fff;
     --text-color-one: #1D1D1B;
-    --primary-color: #3498db;
+    --primary-color: #4CADC9;
     --secondary-color: #e6e6e6;
+    --title-color: #353535;
   }
   
   body.dark {
     --bckgd: #1D1D1B;
     --text-color-one: #fff;
-    --primary-color: #ff7300;
     --secondary-color: #353535;
+    --title-color: #e6e6e6;
   }
   

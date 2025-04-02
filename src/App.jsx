@@ -28,7 +28,10 @@ function App() {
   return (
     <>
       <Header  />
-      <Nav />
+      <div className="navigation">
+        <h2>Catégories</h2>
+        <Nav />
+      </div>
       <Content page={page} />
       <Footer bodyMode={bodyMode} toggleMode={toggleMode} />
     </>

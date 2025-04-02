@@ -2,7 +2,7 @@ const Nav = () => {
     return (
         <nav>
             <ul>
-                <li>NEWS</li>
+                <li className="selected">NEWS</li>
                 <li>APPELS ET PROMOTIONS</li>
                 <li>INTRAMAG</li>
                 <li>ARCHIVES</li>

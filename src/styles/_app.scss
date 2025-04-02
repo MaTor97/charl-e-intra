@@ -8,21 +8,23 @@ body {
     min-height: 100vh;
     width: 100%;
     position: relative;
-    background-color: var(--bckgd);
+    background-color: var(--secondary-color);
     color: var(--text-color-one);
+
+    .navigation {
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+
+        h2 {
+            font-family: $font-tstarpro-bold;
+            font-size: 16px;
+            margin: .5rem;
+            text-align: center;
+            color: var(--title-color);
+        }
+    }
+
+    
 }
 
-body::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url(../assets/images/bckgrnd.png);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: left center;
-    opacity: .5;
-    z-index: -1; 
-}

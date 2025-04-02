@@ -1,9 +1,6 @@
 nav {
     overflow-x: scroll;
-    background-color: var(--primary-color);
     scrollbar-width: none;
-    position: sticky;
-    top: 0;
     left: 0;
     width: 100%;
     z-index: 199;
@@ -16,13 +13,21 @@ nav {
 
         li {
             font-weight: 900;
-            color: white;
+            color: var(--primary-color);
             list-style: none;
             margin: auto 1rem;
             width: auto;
             white-space: nowrap;
             font-family: $font-tstarpro-heavy;
-            font-size: 36px;
+            font-size: 20px;
+            border: 1px solid var(--primary-color);
+            border-radius: 10px;
+            padding: .5rem 1rem;
+        }
+
+        .selected {
+            background-color: var(--primary-color);
+            color: var(--secondary-color);
         }
     }
 }
