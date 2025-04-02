@@ -5,17 +5,30 @@ footer {
     width: 100%;
     justify-content: space-around;
     display: flex;
-    padding: 5px;
+    padding: 10px;
 
     .cont {
         color: var(--text-color-one);
         text-align: center;
+        max-height: 79px;
+        width: 79px;
+        background-color: var(--secondary-color);
+        border-radius: 20px;
+        justify-content: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-end;
+        padding: 3px;
+
 
         p {
             font-family: $font-tstarpro-bold;
             font-size: 12px;
-            margin: 4px;
+            margin: 10px;
+            z-index: 2;
         }
+
     }
 
 }

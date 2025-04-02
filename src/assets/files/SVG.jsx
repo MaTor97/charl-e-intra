@@ -142,8 +142,8 @@ export const DarkModeSVG = () => {
     return (
         <svg 
             xmlns="http://www.w3.org/2000/svg" 
-            width="37" 
-            height="38" 
+            width="28" 
+            height="28.76" 
             viewBox="0 0 37 38" 
             fill="none"
             >
@@ -177,8 +177,8 @@ export const ArrowLeftSVG = () => {
     return (
         <svg 
             xmlns="http://www.w3.org/2000/svg" 
-            width="47" 
-            height="25" 
+            width="32" 
+            height="16.34" 
             viewBox="0 0 47 25" 
             fill="none">
             <path 
@@ -193,8 +193,8 @@ export const NotificationSVG = () => {
     return (
         <svg 
             xmlns="http://www.w3.org/2000/svg" 
-            width="29" 
-            height="38" 
+            width="22.89" 
+            height="30" 
             viewBox="0 0 29 38" 
             fill="none"
             >
@@ -215,8 +215,8 @@ export const InfoMenuSVG = () => {
     return (
         <svg 
             xmlns="http://www.w3.org/2000/svg" 
-            width="38" 
-            height="38" 
+            width="32" 
+            height="32" 
             viewBox="0 0 38 38" 
             fill="none"
             >
