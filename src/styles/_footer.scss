@@ -6,6 +6,7 @@ footer {
     justify-content: space-around;
     display: flex;
     border-top: 1px solid black;
+    z-index: 10000;
 
     
     .cont {
@@ -22,6 +23,10 @@ footer {
         justify-content: flex-end;
         padding: .2rem;
         margin: .3rem;
+
+        svg {
+            cursor: pointer;
+        }
 
         p {
             font-family: $font-tstarpro-bold;

@@ -1,18 +1,37 @@
-const Nav = () => {
-    return (
-        <nav>
-            <ul>
-                <li className="selected">NEWS</li>
-                <li>APPELS ET PROMOTIONS</li>
-                <li>INTRAMAG</li>
-                <li>ARCHIVES</li>
-                <li>CHARLEROI HD</li>
-                <li>NOTES DE SERVICE</li>
-                <li>REVUES DE PRESSE</li>
-                <li>DIVERS</li>
-            </ul>
-        </nav>
-    );
-}
+import { useEffect, useState } from 'react';
+import { fetchTopCategories } from '../../src/assets/files/functions/fetchTopCategories';
+
+const Nav = ({ setPage, selected, setSelected }) => {
+  const [categories, setCategories] = useState([]);
+
+  useEffect(() => {
+    const loadCategories = async () => {
+      const data = await fetchTopCategories();
+      setCategories(data);
+    };
+    loadCategories();
+  }, []);
+
+  const handleCategoryClick = async (categoryId) => {
+      setSelected(categoryId);
+      setPage(categoryId);
+  };
+
+  return (
+    <nav>
+      <ul>
+        {categories.map(category => (
+          <li 
+            key={category.id} 
+            onClick={() => handleCategoryClick(category.id)}  
+            className={selected === category.id ? 'selected' : 'others'}
+            >
+              {category.name}
+          </li>
+        ))}
+      </ul>
+    </nav>
+  );
+};
 
 export default Nav;

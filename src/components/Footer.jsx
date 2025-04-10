@@ -1,10 +1,10 @@
 import { ArrowLeftSVG, NotificationSVG, InfoMenuSVG, DarkModeSVG, LightModeSVG } from "../assets/files/SVG";
 
 
-const Footer = ({ bodyMode, toggleMode }) => {
+const Footer = ({ bodyMode, toggleMode, goBack }) => {
     return (
         <footer>
-            <div className="cont">
+            <div className="cont" onClick={goBack}>
                   <ArrowLeftSVG />
                   <p>Retour</p>
             </div>

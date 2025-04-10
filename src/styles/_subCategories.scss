@@ -1,0 +1,18 @@
+
+.subCategories {
+    padding: 0 2rem;
+
+    li {
+        list-style-type: none;
+        margin: 15px 0;
+        width: 100%;
+        padding: 15px;
+        font-size: 20px;
+        border-bottom: 3px solid var(--primary-color);
+        color: var(--title-color);
+        font-family: $font-tstarpro-bold;
+        text-align: center;
+        cursor: pointer;
+        z-index: 20;
+    }
+}

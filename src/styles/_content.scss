@@ -1,8 +1,6 @@
 .content {
     position: sticky;
-    width: 100%;
-    height: auto;
     overflow: hidden;
-    box-sizing: border-box;
     scrollbar-width: none;
+    z-index: 10;
 }

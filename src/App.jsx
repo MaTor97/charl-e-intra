@@ -6,11 +6,30 @@ import Content from './components/Content'
 import './styles/main.scss'
 
 function App() {
-  const page = 'Article'
+  const [page, setPage] = useState(66)
+  const [previousPages, setPreviousPages] = useState([])
+  const [selected, setSelected] = useState(66);
 
   const [bodyMode, setBodyMode] = useState(() => {
     return document.body.classList.contains('dark') ? 'dark' : 'light'
   })
+
+  const updatePage = (newPage) => {
+    setPreviousPages((prev) => [...prev, page]);
+    setPage(newPage);
+    setSelected(newPage);
+};
+
+const goBack = () => {
+  if (previousPages.length > 0) {
+      const lastPage = previousPages[previousPages.length - 1];
+      setPreviousPages((prev) => prev.slice(0, -1));
+      setPage(lastPage);
+      setSelected(lastPage);
+  } else {
+      console.log("Aucune page précédente disponible !");
+  }
+};
 
   const toggleMode = () => {
     setBodyMode(prevMode => {
@@ -30,10 +49,10 @@ function App() {
       <Header  />
       <div className="navigation">
         <h2>Catégories</h2>
-        <Nav />
+        <Nav setPage={updatePage} selected={selected} setSelected={setSelected}/>
       </div>
-      <Content page={page} />
-      <Footer bodyMode={bodyMode} toggleMode={toggleMode} />
+      <Content page={page} setPage={updatePage} />
+      <Footer bodyMode={bodyMode} toggleMode={toggleMode} goBack={goBack} />
     </>
   )
 }

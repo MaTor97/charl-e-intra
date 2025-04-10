@@ -1,0 +1,221 @@
+@font-face {
+  font-family: "TStarProBold";
+  src: url("../assets/fonts/TStarProBold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "TStarProBoldItalic";
+  src: url("../assets/fonts/TStarProBoldItalic.ttf") format("truetype");
+}
+@font-face {
+  font-family: "TStarProHeavy";
+  src: url("../assets/fonts/TStarProHeavy.ttf") format("truetype");
+}
+@font-face {
+  font-family: "TStarProHeavyItalic";
+  src: url("../assets/fonts/TStarProHeavyItalic.ttf") format("truetype");
+}
+@font-face {
+  font-family: "TStarProLight";
+  src: url("../assets/fonts/TStarProLight.ttf") format("truetype");
+}
+@font-face {
+  font-family: "TStarProLightItalic";
+  src: url("../assets/fonts/TStarProLightItalic.ttf") format("truetype");
+}
+@font-face {
+  font-family: "TStarProMedium";
+  src: url("../assets/fonts/TStarProMedium.ttf") format("truetype");
+}
+@font-face {
+  font-family: "TStarProMediumItalic";
+  src: url("../assets/fonts/TStarProMediumItalic.ttf") format("truetype");
+}
+@font-face {
+  font-family: "TStarProRegular";
+  src: url("../assets/fonts/TStarProRegular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "TStarProRegularItalic";
+  src: url("../assets/fonts/TStarProRegularItalic.ttf") format("truetype");
+}
+:root {
+  --bckgd: #fff;
+  --text-color-one: #1D1D1B;
+  --primary-color: #4CADC9;
+  --secondary-color: #e6e6e6;
+  --secondary-color-opacity: rgba(230, 230, 230, .85);
+  --title-color: #353535;
+}
+
+body.dark {
+  --bckgd: #1D1D1B;
+  --text-color-one: #fff;
+  --secondary-color: #353535;
+  --secondary-color-opacity: rgba(53, 53, 53, .85);
+  --title-color: #e6e6e6;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+  background-color: var(--secondary-color);
+  color: var(--text-color-one);
+}
+body .navigation {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: var(--secondary-color-opacity);
+}
+body .navigation h2 {
+  font-family: "TStarProBold";
+  font-size: 16px;
+  margin: 0.5rem;
+  text-align: center;
+  color: var(--title-color);
+}
+
+header {
+  background-color: var(--bckgd);
+  color: var(--text-color-one);
+  padding: 20px;
+  justify-content: space-between;
+  width: 100%;
+  height: 6rem;
+  overflow: hidden;
+  display: flex;
+  position: relative;
+  top: 0;
+  left: 0;
+  align-items: center;
+  z-index: 100;
+  border-bottom: 1px solid black;
+}
+header .logoMode {
+  display: flex;
+  width: auto;
+  justify-content: space-between;
+}
+header .logoMode img {
+  height: 4rem;
+}
+header .icons {
+  color: var(--text-color-one);
+}
+
+nav {
+  overflow-x: scroll;
+  scrollbar-width: none;
+  left: 0;
+  width: 100%;
+  z-index: 199;
+  transition: transform 0.3s;
+}
+nav ul {
+  display: flex;
+  padding: 0.5rem 0;
+  flex-wrap: nowrap;
+}
+nav ul li {
+  font-weight: 900;
+  color: var(--primary-color);
+  list-style: none;
+  margin: auto 1rem;
+  width: auto;
+  white-space: nowrap;
+  font-family: "TStarProHeavy";
+  font-size: 20px;
+  border: 1px solid var(--primary-color);
+  border-radius: 10px;
+  padding: 0.5rem 1rem;
+}
+nav ul .selected {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+}
+
+.content {
+  position: sticky;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  box-sizing: border-box;
+  scrollbar-width: none;
+}
+
+main {
+  position: sticky;
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  overflow: hidden;
+  box-sizing: border-box;
+  padding-bottom: 4rem;
+  scrollbar-width: none;
+  z-index: -1;
+}
+main h1 {
+  text-align: center;
+  margin: 1rem;
+  font-family: "TStarProBold";
+}
+main .imageContainer {
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem;
+}
+main .imageContainer img {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  border-radius: 20px;
+}
+main p {
+  max-width: 500px;
+  margin: auto;
+  padding: 1rem;
+  font-family: "TStarProRegular";
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  background-color: var(--bckgd);
+  width: 100%;
+  justify-content: space-around;
+  display: flex;
+  border-top: 1px solid black;
+}
+footer .cont {
+  color: var(--text-color-one);
+  text-align: center;
+  max-height: 79px;
+  width: 79px;
+  background-color: var(--secondary-color);
+  border-radius: 10px;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0.2rem;
+  margin: 0.3rem;
+}
+footer .cont p {
+  font-family: "TStarProBold";
+  font-size: 12px;
+  margin: 10px;
+  z-index: 2;
+  white-space: nowrap;
+}/*# sourceMappingURL=main.css.map */
