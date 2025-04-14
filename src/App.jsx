@@ -1,35 +1,28 @@
-import { useState, useEffect } from 'react'
-import Header from './components/Header'
-import Footer from './components/Footer'
-import Nav from './components/Nav'
-import Content from './components/Content'
-import './styles/main.scss'
+import { Routes, Route } from "react-router-dom";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import Posts from "./pages/Posts";
+import './styles/main.scss';
+import Nav from "./components/Nav";
+import { useEffect, useState } from "react";
+import { main } from "./assets/files/functions/hasChildrens";
 
-function App() {
-  const [page, setPage] = useState(66)
-  const [previousPages, setPreviousPages] = useState([])
-  const [selected, setSelected] = useState(66);
 
+const App = () => {
   const [bodyMode, setBodyMode] = useState(() => {
     return document.body.classList.contains('dark') ? 'dark' : 'light'
   })
+  const [subCategoriesPages, setSubCategoriesPages] = useState([]);
+  const [selected, setSelected] = useState(66);
 
-  const updatePage = (newPage) => {
-    setPreviousPages((prev) => [...prev, page]);
-    setPage(newPage);
-    setSelected(newPage);
-};
-
-const goBack = () => {
-  if (previousPages.length > 0) {
-      const lastPage = previousPages[previousPages.length - 1];
-      setPreviousPages((prev) => prev.slice(0, -1));
-      setPage(lastPage);
-      setSelected(lastPage);
-  } else {
-      console.log("Aucune page précédente disponible !");
-  }
-};
+  useEffect(() => {
+    const fetchData = async () => {
+      const data = await main(); // Récupère les ID avec enfants
+      setSubCategoriesPages(data);
+    };
+  
+    fetchData();
+  }, []);
 
   const toggleMode = () => {
     setBodyMode(prevMode => {
@@ -45,16 +38,21 @@ const goBack = () => {
   }, [bodyMode])
 
   return (
-    <>
-      <Header  />
+    <div>
+      <Header />
       <div className="navigation">
         <h2>Catégories</h2>
-        <Nav setPage={updatePage} selected={selected} setSelected={setSelected}/>
+        <Nav selected={selected} setSelected={setSelected}/>
       </div>
-      <Content page={page} setPage={updatePage} />
-      <Footer bodyMode={bodyMode} toggleMode={toggleMode} goBack={goBack} />
-    </>
-  )
-}
+      <Routes>
+        <Route 
+          path="/posts" 
+          element={<Posts />} 
+          />
+      </Routes>
+      <Footer bodyMode={bodyMode} toggleMode={toggleMode} />
+    </div>
+  );
+};
 
-export default App
+export default App;

@@ -1,18 +1,29 @@
 
 .subCategories {
-    padding: 0 2rem;
+    flex-direction: column;
+    position: absolute;
+    left: 0;
+    width: 100%;
 
     li {
         list-style-type: none;
-        margin: 15px 0;
+        height: 100%;
         width: 100%;
-        padding: 15px;
+        padding: 30px;
         font-size: 20px;
+        border: none;
+        border-radius: 0;
         border-bottom: 3px solid var(--primary-color);
         color: var(--title-color);
         font-family: $font-tstarpro-bold;
         text-align: center;
         cursor: pointer;
+        background-color: var(--secondary-color-opacity);
         z-index: 20;
+
+        a {
+            color: var(--text-color-one);
+            text-decoration: none;
+        }
     }
 }

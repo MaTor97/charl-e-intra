@@ -98,12 +98,12 @@ header {
   z-index: 100;
   border-bottom: 1px solid black;
 }
-header .logoMode {
+header .logo {
   display: flex;
   width: auto;
   justify-content: space-between;
 }
-header .logoMode img {
+header .logo img {
   height: 4rem;
 }
 header .icons {
@@ -135,6 +135,7 @@ nav ul li {
   border: 1px solid var(--primary-color);
   border-radius: 10px;
   padding: 0.5rem 1rem;
+  cursor: pointer;
 }
 nav ul .selected {
   background-color: var(--primary-color);
@@ -143,11 +144,9 @@ nav ul .selected {
 
 .content {
   position: sticky;
-  width: 100%;
-  height: auto;
   overflow: hidden;
-  box-sizing: border-box;
   scrollbar-width: none;
+  z-index: 10;
 }
 
 main {
@@ -196,6 +195,7 @@ footer {
   justify-content: space-around;
   display: flex;
   border-top: 1px solid black;
+  z-index: 10000;
 }
 footer .cont {
   color: var(--text-color-one);
@@ -212,10 +212,91 @@ footer .cont {
   padding: 0.2rem;
   margin: 0.3rem;
 }
+footer .cont svg {
+  cursor: pointer;
+}
 footer .cont p {
   font-family: "TStarProBold";
   font-size: 12px;
   margin: 10px;
   z-index: 2;
   white-space: nowrap;
+}
+
+.subCategories {
+  flex-direction: column;
+  position: absolute;
+  left: 0;
+  width: 100%;
+}
+.subCategories li {
+  list-style-type: none;
+  height: 100%;
+  width: 100%;
+  padding: 30px;
+  font-size: 20px;
+  border: none;
+  border-radius: 0;
+  border-bottom: 3px solid var(--primary-color);
+  color: var(--title-color);
+  font-family: "TStarProBold";
+  text-align: center;
+  cursor: pointer;
+  background-color: var(--secondary-color-opacity);
+  z-index: 20;
+}
+.subCategories li a {
+  color: var(--text-color-one);
+  text-decoration: none;
+}
+
+.articles {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.articles .article {
+  height: 21.5rem;
+  width: 18rem;
+  overflow: hidden;
+  margin: 1.5rem;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.articles .article img {
+  width: 100%;
+  height: calc(100% - 7rem);
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+.articles .article .defaultImage {
+  width: 100%;
+  height: 100%;
+  background-color: var(--bckgd);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+.articles .article .defaultImage svg {
+  width: 15rem;
+  height: 11rem;
+}
+.articles .article h2 {
+  height: 7rem;
+  width: 100%;
+  background-color: var(--bckgd);
+  color: var(--text-color-one);
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  font-family: "TStarProHeavy";
+  font-size: 20px;
+  padding: 10px;
 }/*# sourceMappingURL=main.css.map */

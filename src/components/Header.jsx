@@ -3,9 +3,8 @@ import { LogoSVG, SearchSVG } from "../assets/files/SVG"
 const Header = () => {
   return (
     <header>
-      <div className="logoMode">
+      <div className="logo">
         <LogoSVG className="icons" id='logo' />
-        
       </div>
           <SearchSVG className='icons'/>
     </header>
