@@ -1,41 +1,47 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useNavigate } from "react-router-dom";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Posts from "./pages/Posts";
+import Article from "./pages/Article";
 import './styles/main.scss';
 import Nav from "./components/Nav";
 import { useEffect, useState } from "react";
 import { main } from "./assets/files/functions/hasChildrens";
 
-
 const App = () => {
+  const navigate = useNavigate(); // Ajoute useNavigate ici
   const [bodyMode, setBodyMode] = useState(() => {
-    return document.body.classList.contains('dark') ? 'dark' : 'light'
-  })
+    return document.body.classList.contains('dark') ? 'dark' : 'light';
+  });
   const [subCategoriesPages, setSubCategoriesPages] = useState([]);
   const [selected, setSelected] = useState(66);
 
   useEffect(() => {
+    // Si l'URL est simplement "/posts", redirige vers "/posts?categories=66"
+    if (window.location.pathname === "/" && !window.location.search) {
+      navigate("/posts?categories=66");
+    }
+
     const fetchData = async () => {
       const data = await main(); // Récupère les ID avec enfants
       setSubCategoriesPages(data);
     };
-  
+
     fetchData();
-  }, []);
+  }, [navigate]); // Ajoute "navigate" dans les dépendances du useEffect
 
   const toggleMode = () => {
     setBodyMode(prevMode => {
-      const newMode = prevMode === 'light' ? 'dark' : 'light'
-      document.body.classList.remove('light', 'dark')
-      document.body.classList.add(newMode)
-      return newMode
-    })
-  }
+      const newMode = prevMode === 'light' ? 'dark' : 'light';
+      document.body.classList.remove('light', 'dark');
+      document.body.classList.add(newMode);
+      return newMode;
+    });
+  };
 
   useEffect(() => {
-    document.body.classList.add(bodyMode)
-  }, [bodyMode])
+    document.body.classList.add(bodyMode);
+  }, [bodyMode]);
 
   return (
     <div>
@@ -45,10 +51,8 @@ const App = () => {
         <Nav selected={selected} setSelected={setSelected}/>
       </div>
       <Routes>
-        <Route 
-          path="/posts" 
-          element={<Posts />} 
-          />
+        <Route path="/posts" element={<Posts />} />
+        <Route path="/posts/:postId" element={<Article />} />
       </Routes>
       <Footer bodyMode={bodyMode} toggleMode={toggleMode} />
     </div>

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { fetchURL } from '../assets/files/functions/fetch';
+import { useNavigate } from 'react-router-dom';
 import { LogoSVG } from '../../../charl-e-intra/src/assets/files/SVG';
 import { getPostImage } from '../assets/files/functions/getPostImage'; // <- à adapter si chemin différent
 import { stripHtml, decodeHtml } from '../assets/files/functions/cleanHTML'; // au cas où tu les utilises
@@ -11,6 +12,7 @@ const Posts = () => {
   const [posts, setPosts] = useState([]);
   const [images, setImages] = useState({});
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const loadPosts = async () => {
@@ -39,9 +41,13 @@ const Posts = () => {
   }, [categoryId]);
 
   return (
-      <ul className='articles'>
+      <ul className='articles' >
         {posts.map((post) => (
-          <div key={post.id} className="article">
+          <div 
+            key={post.id} 
+            className="article" 
+            onClick={() => navigate(`/posts/${post.id}`)}
+            >
             {images[post.id] && /\.(jpe?g|png|webp)$/i.test(images[post.id]) ? (
               <img src={images[post.id]} alt="Post" />
             ) : (

@@ -7,30 +7,31 @@ main {
     box-sizing: border-box;
     padding-bottom: 4rem;
     scrollbar-width: none;
-    z-index: -1;
+    font-family: $font-tstarpro-regular;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    margin-bottom: 8rem;
+    padding: 0 40px;
+    overflow: hidden;
+
+    li {
+      list-style-type: none;
+    }
 
     h1 {
       text-align: center;
       margin: 1rem;
       font-family: $font-tstarpro-bold;
     }
-    
-    .imageContainer {
-        position: relative;
-        overflow: hidden;
-        box-sizing: border-box;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin: 1rem;
-        
 
-        img {
-            width: 100%;
-            max-width: 500px;
-            height: auto;
-            border-radius: 20px;
-        }
+    img {
+      width: 100%;
+      max-width: 500px;
+      height: auto;
+      border-radius: 20px;
     }
 
     p {
@@ -38,6 +39,11 @@ main {
       margin: auto;
       padding: 1rem;
       font-family: $font-tstarpro-regular;
+    }
+
+    a {
+      cursor: pointer;
+      z-index: 10000;
     }
   }
   

@@ -1,6 +1,6 @@
 export const fetchURL = async (endpoint) => {
   try {
-    const response = await fetch('https://intradev.acc-vdc.be/wp-json/wp/v2/' + endpoint);
+    const response = await fetch('https://intranetprod2.acc-vdc.be/wp-json/wp/v2/' + endpoint);
     if (!response.ok) {
       throw new Error('Erreur réseau : ' + response.status);
     }
