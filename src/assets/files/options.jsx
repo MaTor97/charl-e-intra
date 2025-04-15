@@ -66,5 +66,47 @@ export const htmlParserOptions = {
         </a>
       );
     }
+
+    // TABLEAUX
+    if (domNode.name === 'table') {
+      return (
+        <div style={{ overflowX: 'auto', margin: '1rem 0' }}>
+          <table
+            style={{
+              width: '100%',
+              borderCollapse: 'collapse',
+              border: '1px solid #ccc',
+            }}
+          >
+            {domToReact(domNode.children, htmlParserOptions)}
+          </table>
+        </div>
+      );
+    }
+
+    if (['thead', 'tbody', 'tr', 'th', 'td'].includes(domNode.name)) {
+      const styleMap = {
+        th: {
+          backgroundColor: '#f2f2f2',
+          padding: '8px',
+          border: '1px solid #ccc',
+          textAlign: 'left',
+        },
+        td: {
+          padding: '8px',
+          border: '1px solid #ccc',
+          textAlign: 'left',
+        },
+        tr: {},
+        thead: {},
+        tbody: {},
+      };
+
+      return React.createElement(
+        domNode.name,
+        { style: styleMap[domNode.name] || {} },
+        domToReact(domNode.children, htmlParserOptions)
+      );
+    }
   },
 };
