@@ -2,9 +2,9 @@ import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { fetchURL } from '../assets/files/functions/fetch';
 import { useNavigate } from 'react-router-dom';
-import { LogoSVG } from '../assets/files/SVG/LogoSVG';
-import { getPostImage } from '../assets/files/functions/getPostImage'; // <- à adapter si chemin différent
-import { stripHtml, decodeHtml } from '../assets/files/functions/cleanHTML'; // au cas où tu les utilises
+import { LogoSVG } from '../assets/files/SVG';
+import { getPostImage } from '../assets/files/functions/getPostImage';
+import { stripHtml, decodeHtml } from '../assets/files/functions/cleanHTML'; 
 
 const Posts = () => {
   const [searchParams] = useSearchParams();
