@@ -1,11 +1,11 @@
 {
-  "name": "charl-e-intra",
+  "name": "charl-e-routes",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "npm run build",
     "lint": "eslint .",
     "preview": "vite preview"
   },
