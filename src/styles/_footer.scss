@@ -38,4 +38,32 @@ footer {
 
     }
 
+    .selected {
+        color: var(--secondary-color);
+        background-color: var(--primary-color);
+        text-align: center;
+        max-height: 79px;
+        width: 79px;
+        border-radius: 10px;
+        justify-content: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-end;
+        padding: .2rem;
+        margin: .3rem;
+
+        svg {
+            cursor: pointer;
+        }
+
+        p {
+            font-family: $font-tstarpro-bold;
+            font-size: 12px;
+            margin: 10px;
+            z-index: 2;
+            white-space: nowrap;
+        }
+    }
+
 }

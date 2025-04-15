@@ -1,12 +1,12 @@
-import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useEffect, useRef, useState } from 'react';
 import { fetchTopCategories } from '../assets/files/functions/fetchTopCategories';
 import { fetchURL } from '../assets/files/functions/fetch';
 
-const Nav = ({ selected, setSelected }) => {
+const Nav = ({ selected, setSelected, navigate }) => {
   const [categories, setCategories] = useState([]);
   const [subCategories, setSubCategories] = useState([]);
-  const navigate = useNavigate();
+  const subCategoriesRef = useRef(null);
+
 
   useEffect(() => {
     const loadCategories = async () => {
@@ -14,6 +14,20 @@ const Nav = ({ selected, setSelected }) => {
       setCategories(data);
     };
     loadCategories();
+
+    const handleClickOutside = (event) => {
+      if (
+        subCategoriesRef.current &&
+        !subCategoriesRef.current.contains(event.target)
+      ) {
+        setSubCategories([]);
+      }
+    };
+
+    document.addEventListener('click', handleClickOutside);
+    return () => {
+      document.removeEventListener('click', handleClickOutside);
+    };
   }, []);
 
   const handleCategoryClick = async (category) => {
@@ -28,7 +42,7 @@ const Nav = ({ selected, setSelected }) => {
   };
 
   const handleSubCategoryClick = (subCategory) => {
-    setSubCategories([]);  // Réinitialiser subCategories
+    setSubCategories([]); 
     navigate(`/posts?categories=${subCategory.id}`);
   };
 
@@ -47,7 +61,7 @@ const Nav = ({ selected, setSelected }) => {
       </ul>
 
       {subCategories.length > 0 && (
-        <ul className='subCategories'>
+        <ul className='subCategories' ref={subCategoriesRef}>
           {subCategories.map((subCategory) => (
             <li 
               key={subCategory.id}
@@ -56,6 +70,7 @@ const Nav = ({ selected, setSelected }) => {
                 {subCategory.name}
             </li>
           ))}
+            <li id='fond' onClick={() => setSubCategories([])}></li>
         </ul>
       )}
     </nav>

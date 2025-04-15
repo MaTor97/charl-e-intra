@@ -43,9 +43,9 @@ export const htmlParserOptions = {
             href={href}
             target="_blank"
             rel="noopener noreferrer"
-            style={{ color: '#007bff', textDecoration: 'underline' }}
+            className="pdf"
           >
-            📄 Voir le PDF
+            📄 <span style={{ fontSize: '1.3em' }}>Voir le PDF</span>
           </a>
         );
       }

@@ -1,30 +1,28 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import parse from 'html-react-parser';
-import {htmlParserOptions} from '../assets/files/options';
-import { fetchURL } from '../assets/files/functions/fetch'; // ta fonction de récupération des données
-import { stripHtml, decodeHtml } from '../assets/files/functions/cleanHTML'; // au cas où tu les utilises
+import { htmlParserOptions } from '../assets/files/options';
+import { fetchURL } from '../assets/files/functions/fetch';
+import { stripHtml, decodeHtml } from '../assets/files/functions/cleanHTML';
 
 const Article = () => {
-  const { postId } = useParams(); // Récupère l'ID du post depuis l'URL
+  const { postId } = useParams();
   const [post, setPost] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const loadPost = async () => {
       setLoading(true);
-
       try {
         const data = await fetchURL(`posts/${postId}`);
-        setPost(data);
+        setPost(data); // data est un objet ici
       } catch (error) {
         console.error("Erreur de récupération du post:", error);
-        setPost(null); 
+        setPost(null);
       }
-  
       setLoading(false);
     };
-  
+
     loadPost();
   }, [postId]);
 

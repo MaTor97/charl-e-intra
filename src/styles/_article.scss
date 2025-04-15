@@ -2,6 +2,7 @@ main {
     position: sticky;
     width: 100%;
     height: auto;
+    min-height: 50vh;
     margin: 0 auto;
     overflow: hidden;
     box-sizing: border-box;
@@ -44,6 +45,18 @@ main {
     a {
       cursor: pointer;
       z-index: 10000;
+    }
+
+    .pdf {
+      text-decoration: none;
+      border: 1px solid var(--primary-color);
+      color: var(--primary-color);
+      border-radius: .5rem;
+      padding: 10px;
+      font-weight: 800;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
     }
   }
   

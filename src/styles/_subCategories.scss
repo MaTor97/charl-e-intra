@@ -3,6 +3,8 @@
     flex-direction: column;
     position: absolute;
     background-color: var(--secondary-color-opacity);
+    backdrop-filter: blur(10px); /* Effet de flou */
+    -webkit-backdrop-filter: blur(10px); /* Compatibilité avec WebKit */
     width: 100%;
     align-items: center;
     padding: 0 20px;
@@ -20,12 +22,15 @@
         font-family: $font-tstarpro-bold;
         text-align: center;
         cursor: pointer;
-        
         z-index: 20;
 
         a {
             color: var(--text-color-one);
             text-decoration: none;
         }
+    }
+
+    #fond {
+        height: 50vh;
     }
 }

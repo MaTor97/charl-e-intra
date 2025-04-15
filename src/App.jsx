@@ -3,6 +3,8 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Posts from "./pages/Posts";
 import Article from "./pages/Article";
+import Notifications from "./pages/Notifications";
+import Account from "./pages/Account"
 import './styles/main.scss';
 import Nav from "./components/Nav";
 import { useEffect, useState } from "react";
@@ -15,6 +17,7 @@ const App = () => {
   });
   const [subCategoriesPages, setSubCategoriesPages] = useState([]);
   const [selected, setSelected] = useState(66);
+
 
   useEffect(() => {
     // Si l'URL est simplement "/posts", redirige vers "/posts?categories=66"
@@ -39,22 +42,35 @@ const App = () => {
     });
   };
 
+  const goBack = () => {
+    window.history.back();
+  }
+
   useEffect(() => {
     document.body.classList.add(bodyMode);
   }, [bodyMode]);
 
   return (
     <div>
-      <Header />
+      <Header navigate={navigate} />
       <div className="navigation">
         <h2>Catégories</h2>
-        <Nav selected={selected} setSelected={setSelected}/>
+        <Nav selected={selected} setSelected={setSelected} navigate={navigate}/>
       </div>
       <Routes>
         <Route path="/posts" element={<Posts />} />
         <Route path="/posts/:postId" element={<Article />} />
+        <Route path='/Notifications' element={<Notifications />} />
+        <Route path='/Account' element={<Account />} />
       </Routes>
-      <Footer bodyMode={bodyMode} toggleMode={toggleMode} />
+      <Footer 
+        navigate={navigate} 
+        goBack={goBack} 
+        bodyMode={bodyMode} 
+        toggleMode={toggleMode} 
+        selected={selected} 
+        setSelected={setSelected}
+        />
     </div>
   );
 };
