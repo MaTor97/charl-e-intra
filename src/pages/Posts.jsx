@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { fetchPostsByCategory } from '../assets/files/functions/fetchPostsByCategory';
-import { useNavigate } from 'react-router-dom';
 import { LogoSVG } from '../assets/files/SVG';
 import { getPostImage } from '../assets/files/functions/getPostImage';
 import { stripHtml, decodeHtml } from '../assets/files/functions/cleanHTML'; 
@@ -11,11 +10,13 @@ const Posts = ({navigate}) => {
   const categoryId = searchParams.get('categories');
   const [posts, setPosts] = useState([]);
   const [images, setImages] = useState({});
+  const [loading, setLoading] = useState(true);
 
 
   useEffect(() => {
     const loadPosts = async () => {
       if (categoryId) {
+        setLoading(true);
         const data = await fetchPostsByCategory(categoryId);
         setPosts(data);
   
@@ -31,11 +32,13 @@ const Posts = ({navigate}) => {
         }, {});
   
         setImages(imagesObj);
+        setLoading(false);
       }
     };
     loadPosts();
   }, [categoryId]);
   
+  if (loading) return <div className="articles"><p>Chargement en cours...</p></div>;
 
   if (posts.length < 1) {
     return <div className='articles'>
