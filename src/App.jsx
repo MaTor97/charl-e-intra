@@ -58,7 +58,7 @@ const App = () => {
         <Nav selected={selected} setSelected={setSelected} navigate={navigate}/>
       </div>
       <Routes>
-        <Route path="/posts" element={<Posts />} />
+        <Route path="/posts" element={<Posts navigate={navigate}/>} />
         <Route path="/posts/:postId" element={<Article />} />
         <Route path='/Notifications' element={<Notifications />} />
         <Route path='/Account' element={<Account />} />

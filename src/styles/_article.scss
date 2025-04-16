@@ -14,8 +14,7 @@ main {
     align-items: center;
     text-align: center;
     flex-direction: column;
-    margin-bottom: 8rem;
-    padding: 0 40px;
+    margin-bottom: 2rem;
     overflow: hidden;
 
     li {
@@ -55,16 +54,16 @@ main {
       font-style: italic;
       width: 100%;
       padding: 0;
+      margin: 10px;
     }
 
     .wp-block-file {
       border: 1px solid var(--primary-color);
       border-radius: .5rem;
       width: 9rem;
-      height: 2.5rem;
+      height: 2rem;
       overflow: hidden;
-      margin-top: 2rem;
-      padding-top: .1rem;
+      margin: auto;
 
       .pdf {
         border: none;
@@ -81,6 +80,85 @@ main {
       border: 1px solid var(--primary-color);
       border-radius: .5rem;
       padding: 10px;
+    }
+
+    .commentBox {
+      background-color: var(--bckgd);
+      border-radius: 1.2rem;
+      padding-bottom: 1.5rem;
+      width: 100%;
+
+      #title {
+        border-bottom: 2px solid var(--secondary-color);
+      }
+      
+      .comment {
+        display: flex;
+        border-bottom: 2px solid var(--secondary-color);
+        margin: 5px;
+
+        img {
+          width: 3rem;
+          height: 3rem;
+        }
+
+        .comContent {
+
+          .nameNDate {
+            height: 3rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            font-size: .8rem;
+          }
+
+          span {
+            p {
+              text-align: left;
+            }
+          }
+        }
+      }
+
+      textarea {
+        width: 95%;
+        height: 5rem;
+        resize: none;
+        background-color: var(--bckgd);
+        padding: 10px;
+      }
+    }    
+
+    .wp-block-table {
+      width: 100%;
+
+      table {
+        border: 2px solid var(--title-color);
+        width: 100%;
+        border-collapse: collapse;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        margin: 5px 0;
+        
+        tbody {
+          tr {
+            &:nth-child(even) {
+              background-color: var(--secondary-color);
+            }
+      
+            &:nth-child(odd) {
+              background-color: var(--bckgd);
+            }
+      
+            td {
+              padding: 12px;
+              border: 1px solid var(--title-color);
+              color: var(--text-color);
+              text-align: left;
+            }
+          }
+        }
+      }
+      
     }
   }
   

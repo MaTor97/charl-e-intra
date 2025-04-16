@@ -11,6 +11,16 @@ body {
     background-color: var(--secondary-color);
     color: var(--text-color-one);
 
+    button {
+        padding: 10px;
+        margin: 10px;
+        border: 1px solid var(--primary-color);
+        font-family: $font-tstarpro-heavy;
+        color: var(--primary-color);
+        border-radius: .2rem;
+        background-color: var(--secondary-color);
+      }
+
     .navigation {
         position: sticky;
         top: 0;
