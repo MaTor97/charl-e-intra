@@ -11,13 +11,11 @@ const Posts = ({navigate}) => {
   const categoryId = searchParams.get('categories');
   const [posts, setPosts] = useState([]);
   const [images, setImages] = useState({});
-  const [loading, setLoading] = useState(true);
 
 
   useEffect(() => {
     const loadPosts = async () => {
       if (categoryId) {
-        setLoading(true);
         const data = await fetchPostsByCategory(categoryId);
         setPosts(data);
   
@@ -33,13 +31,11 @@ const Posts = ({navigate}) => {
         }, {});
   
         setImages(imagesObj);
-        setLoading(false);
       }
     };
     loadPosts();
   }, [categoryId]);
   
-  if (loading) return <div className="articles"><p>Chargement en cours...</p></div>;
 
   if (posts.length < 1) {
     return <div className='articles'>
