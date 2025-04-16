@@ -2,7 +2,7 @@ main {
     position: sticky;
     width: 100%;
     height: auto;
-    min-height: 50vh;
+    min-height: 60vh;
     margin: 0 auto;
     overflow: hidden;
     box-sizing: border-box;
@@ -54,9 +54,7 @@ main {
       border-radius: .5rem;
       padding: 10px;
       font-weight: 800;
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
+
     }
   }
   
