@@ -55,7 +55,7 @@ export const htmlParserOptions = {
           href={href}
           target="_blank"
           rel="noopener noreferrer"
-          className="pdf"
+          className="doc"
         >
           📄 <span style={{ fontSize: '1.3em' }}>Voir le DOC</span>
         </a>)
@@ -67,11 +67,6 @@ export const htmlParserOptions = {
         <a
           href={href}
           {...(isExternal ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
-          style={{
-            color: '#007bff',
-            textDecoration: 'underline',
-            fontWeight: isExternal ? 'bold' : 'normal',
-          }}
         >
           {domToReact(domNode.children)}
         </a>

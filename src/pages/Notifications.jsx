@@ -1,7 +1,7 @@
 const Notifications = () => {
     return (
         <main>
-            <h1>Haha</h1>
+            <h1>Notifications</h1>
         </main>
     )
 }

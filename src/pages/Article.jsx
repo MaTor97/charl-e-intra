@@ -38,6 +38,7 @@ const Article = () => {
     <main className="article-detail">
       <h1>{stripHtml(decodeHtml(post.title.rendered))}</h1>
       <div>{parse(post.content.rendered, htmlParserOptions)}</div>
+      <p id='date'>{post.date}</p>
     </main>
   );
 };
