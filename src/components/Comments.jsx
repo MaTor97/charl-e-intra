@@ -1,4 +1,5 @@
 import { fetchURL } from '../assets/files/functions/fetch';
+import { timeAgo } from '../assets/files/functions/timeAgo'
 import { useEffect, useState } from 'react';
 import parse from 'html-react-parser';
 
@@ -17,8 +18,7 @@ const Comments = ({ postId }) => {
         };
       
         loadPost();
-      }, [postId]);
-      
+      }, [postId]);     
     
       return (
         <div className="commentBox">
@@ -32,7 +32,7 @@ const Comments = ({ postId }) => {
                         <div className="nameNDate">
                             <strong className="author-name">{comment.author_name}</strong>
                             <div className="timestamp">
-                                {new Date(comment.date).toLocaleString()}
+                                {timeAgo(comment.date)}
                             </div>
                         </div>
                         <span>{parse(comment.content.rendered)}</span>

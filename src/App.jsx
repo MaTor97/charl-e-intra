@@ -18,7 +18,6 @@ const App = () => {
   const [subCategoriesPages, setSubCategoriesPages] = useState([]);
   const [selected, setSelected] = useState(66);
 
-
   useEffect(() => {
     // Si l'URL est simplement "/posts", redirige vers "/posts?categories=66"
     if (window.location.pathname === "/" && !window.location.search) {

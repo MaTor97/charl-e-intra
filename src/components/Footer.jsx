@@ -1,5 +1,4 @@
 
-import { useEffect } from "react";
 import { ArrowLeftSVG, NotificationSVG, AccountSVG, DarkModeSVG, LightModeSVG } from "../assets/files/SVG";
 
 const Footer = ({ bodyMode, toggleMode, goBack, navigate, selected, setSelected }) => {
