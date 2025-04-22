@@ -40,7 +40,7 @@ const Article = () => {
       <h1>{stripHtml(decodeHtml(post.title.rendered))}</h1>
       <div>{parse(post.content.rendered, htmlParserOptions)}</div>
       <p id="date">{post.date}</p>
-      {post.categories[1] === 54 || post.categories[1] === 94 ? 
+      {post.categories.includes(54)|| post.categories.includes(94) ? 
         <Comments postId={postId} /> 
         : null}
     </main>
