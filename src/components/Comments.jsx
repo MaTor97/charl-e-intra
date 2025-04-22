@@ -27,21 +27,21 @@ const Comments = ({ postId }) => {
           const avatarUrl = Object.values(comment.author_avatar_urls).pop();
             return (
                 <div className="comment" key={comment.id}>
-                    <img src={avatarUrl} alt="avatar" />
-                    <div className="comContent">
+                    <div className="user">
+                      <img src={avatarUrl} alt="avatar" />
                         <div className="nameNDate">
                             <strong className="author-name">{comment.author_name}</strong>
                             <div className="timestamp">
                                 {timeAgo(comment.date)}
                             </div>
                         </div>
-                        <span>{parse(comment.content.rendered)}</span>
                     </div>
+                    <div id='comContent'>{parse(comment.content.rendered)}</div>
                 </div>
             )
         })}
         <textarea placeholder='Laissez un commentaire...'></textarea>
-        <button>publier</button>
+        <button>PUBLIER</button>
       </div>
       );  
 }

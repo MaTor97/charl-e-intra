@@ -26,6 +26,26 @@ header {
         }
     }
 
+    .searchBar {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-bottom: 1px solid var(--text-color-one);
+
+        input {
+            border: none;
+            padding: 1rem;
+            font-size: 1.3rem;
+            width: 13rem;
+            background-color: var(--bckgd);
+            color: var(--text-color-one);
+
+            &::placeholder {
+                color: var(--title-color);
+            }
+        }
+    }
+
     .icons {
         color: var(--text-color-one);
     }

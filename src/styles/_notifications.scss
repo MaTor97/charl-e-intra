@@ -1,0 +1,63 @@
+#notificationsContainer {
+    height: 75vh;
+    overflow: scroll;
+    scrollbar-width: none;
+    justify-content: left;
+    padding-top: 5rem;
+    
+    h1 {
+        position: absolute;
+        top: 0;
+        left: .5rem;
+        color: var(--title-color);
+    }
+
+    .notification {
+        display: flex;
+        background-color: var(--bckgd);
+        text-align: left;
+        margin: .5rem;
+        padding: 1rem;
+        border-radius: .5rem;
+        width: 98%;
+
+        #image {
+            margin: .5rem;
+
+            height: 3rem;
+            width: 3rem;
+            padding: .6rem;
+        }
+        
+        .notificationText {
+            text-align: left;
+
+            .date {
+                text-align: left;
+                font-size: .8rem;
+            }
+
+          .content {
+                font-weight: bold;
+                font-size: 1rem;
+
+                em {
+                    color: var(--primary-color);
+                    font-style: normal;
+                }
+            }
+            
+            p {
+                padding: .2rem;
+            }
+        }
+
+        .suppr {
+            font-size: 1.2rem;
+            color: var(--title-color);
+            font-weight: bolder;
+            position: absolute;
+            right: 2rem;
+        }
+    }
+}

@@ -7,7 +7,10 @@ const Header = ({navigate}) => {
       <div className="logo" onClick={() => navigate("/posts?categories=66")}>
         <LogoSVG className="icons" id='logo' />
       </div>
-          <SearchSVG className='icons'/>
+      <div className="searchBar">
+        <input type="text" placeholder="Article, Titre,..." />
+        <SearchSVG className='icons'/>
+      </div>
     </header>
   )
 }

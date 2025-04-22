@@ -1,47 +1,68 @@
 .commentBox {
-    background-color: var(--bckgd);
-    border-radius: 1.2rem;
     padding-bottom: 1.5rem;
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
     #title {
-      border-bottom: 2px solid var(--secondary-color);
+      width: 25rem;
+      font-family: $font-tstarpro-heavy;
+      font-size: 1.5rem;
+      color: var(--title-color);
+      text-align: left;
     }
     
     .comment {
-      display: flex;
-      border-bottom: 2px solid var(--secondary-color);
-      margin: 5px;
+      width: 25rem;
+      margin: 7.5px;
+      background-color: var(--bckgd);
+      border-radius: .5rem;
 
       img {
         width: 3rem;
         height: 3rem;
       }
 
-      .comContent {
+      .user {
         width: 100%;
+        display: flex;
+        padding: 1rem;
 
         .nameNDate {
+          margin: 0 1rem;
           height: 3rem;
-          display: flex;
           align-items: center;
           justify-content: space-around;
           font-size: .8rem;
-        }
-
-        span {
-          p {
-            text-align: left;
-          }
+        } 
+      }
+      #comContent {
+        p {
+          text-align: left;
         }
       }
     }
 
     textarea {
-      width: 97%;
+      width: 25rem;
+      border-radius: .5rem;
+      border: none;
       height: 5rem;
       resize: none;
       background-color: var(--bckgd);
       padding: 10px;
+      font-family: $font-tstarpro-regular;
+      color: var(--text-color-one);
+      margin-top: 3rem;
+
+      &::placeholder {
+        color: var(--title-color);
+    }
+    }
+
+    button {
+      border-color: var(--text-color-one);
+      color: var(--text-color-one)
     }
   }    
