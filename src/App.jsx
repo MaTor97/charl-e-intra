@@ -12,25 +12,12 @@ import { main } from "./assets/files/functions/hasChildrens";
 
 const App = () => {
   const navigate = useNavigate(); // Ajoute useNavigate ici
-  const [bodyMode, setBodyMode] = useState(() => {
-    return document.body.classList.contains('dark') ? 'dark' : 'light';
-  });
   const [subCategoriesPages, setSubCategoriesPages] = useState([]);
   const [selected, setSelected] = useState(66);
 
-  useEffect(() => {
-    // Si l'URL est simplement "/posts", redirige vers "/posts?categories=66"
-    if (window.location.pathname === "/" && !window.location.search) {
-      navigate("/posts?categories=66");
-    }
-
-    const fetchData = async () => {
-      const data = await main(); // Récupère les ID avec enfants
-      setSubCategoriesPages(data);
-    };
-
-    fetchData();
-  }, [navigate]); // Ajoute "navigate" dans les dépendances du useEffect
+  const [bodyMode, setBodyMode] = useState(() => {
+    return document.body.classList.contains('dark') ? 'dark' : 'light';
+  });
 
   const toggleMode = () => {
     setBodyMode(prevMode => {
@@ -44,6 +31,22 @@ const App = () => {
   const goBack = () => {
     window.history.back();
   }
+
+
+  useEffect(() => {
+    // Si l'URL est simplement "/posts", redirige vers "/posts?categories=66"
+    if (window.location.pathname === "/" && !window.location.search) {
+      navigate("/posts?categories=66");
+      setSelected(66)
+    }
+
+    const fetchData = async () => {
+      const data = await main(); // Récupère les ID avec enfants
+      setSubCategoriesPages(data);
+    };
+
+    fetchData();
+  }, [navigate]); // Ajoute "navigate" dans les dépendances du useEffect
 
   useEffect(() => {
     document.body.classList.add(bodyMode);
