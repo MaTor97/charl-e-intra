@@ -30,6 +30,7 @@ const App = () => {
 
   const goBack = () => {
     window.history.back();
+    setSelected('')
   }
 
 
