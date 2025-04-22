@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { fetchPostsByCategory } from '../assets/files/functions/fetchPostsByCategory';
-import { LogoSVG } from '../assets/files/SVG';
+import { LogoSVG, EmptySVG } from '../assets/files/SVG';
 import { getPostImage } from '../assets/files/functions/getPostImage';
 import { stripHtml, decodeHtml } from '../assets/files/functions/cleanHTML'; 
 
@@ -41,9 +41,10 @@ const Posts = ({navigate}) => {
   if (loading) return <div className="articles"><p>Chargement en cours...</p></div>;
 
   if (posts.length < 1) {
-    return <div className='articles'>
-              <p>Aucune catégorie disponnible</p>
-              <button onClick={() => navigate("/posts?categories=66")}>Retour à l'acceuil!</button>
+    return <div className='EmptyArticles'>
+              <EmptySVG />
+              <p>Cette catégorie est vide pour le moment</p>
+              <button onClick={() => navigate("/posts?categories=66")}>Retour à l'acceuil</button>
             </div>;
   }
   

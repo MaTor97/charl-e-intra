@@ -15,6 +15,7 @@ const Article = () => {
     const loadPost = async () => {
       try {
         const data = await fetchURL(`posts/${postId}`);
+        
         setPost(data);
       } catch (error) {
         console.error("Erreur de récupération du post:", error);
@@ -39,9 +40,11 @@ const Article = () => {
     <main className="article-detail">
       <h1>{stripHtml(decodeHtml(post.title.rendered))}</h1>
       <div>{parse(post.content.rendered, htmlParserOptions)}</div>
-      <p id="date">{post.date}</p>
       {post.categories.includes(54)|| post.categories.includes(94) ? 
-        <Comments postId={postId} /> 
+        <div id='foot'>
+          <p id="date">{post.date}</p>
+          <Comments postId={postId} /> 
+        </div>
         : null}
     </main>
   );

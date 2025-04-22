@@ -11,7 +11,7 @@ const Account = () => {
   const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e) => {
-    e.preventDefault(); // Empêche le rechargement de la page
+    e.preventDefault(); 
     setLoading(true);
     setError('');
     setHtmlContent('');
@@ -30,9 +30,7 @@ const Account = () => {
         const bodyContent = loginTabsWrapper ? loginTabsWrapper.innerHTML : '';
         setHtmlContent(bodyContent);
       } else {
-        // Si c'est un objet JSON, peut-être une réponse utilisateur
         console.log('Réponse JSON :', res);
-        // Tu peux afficher un message ou rediriger ici si besoin
       }
 
     } catch (err) {
@@ -85,7 +83,7 @@ const Account = () => {
         <p className="login-remember">
           <label>
             <input
-             id="rememberme"
+              id="rememberme"
               type="checkbox"
               value="forever"
               name="rememberme"
