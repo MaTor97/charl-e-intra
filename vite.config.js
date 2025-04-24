@@ -1,9 +1,42 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
+import { VitePWA } from 'vite-plugin-pwa'
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [react()],
+  plugins: [
+    react(),
+    VitePWA({
+      registerType: 'autoUpdate',
+      devOptions : {
+        enabled: true,
+      },
+      manifest: {
+        name: 'Mon Application PWA',
+        short_name: 'MonPWA',
+        description: 'Une Progressive Web App créée avec Vite et React.',
+        theme_color: '#ffffff',
+        background_color: '#ffffff',
+        display: 'standalone',
+        icons: [
+          {
+            src: '/icons/icon-192x192.png',
+            sizes: '192x192',
+            type: 'image/png',
+          },
+          {
+            src: '/icons/icon-512x512.png',
+            sizes: '512x512',
+            type: 'image/png',
+          },
+        ],
+      },
+      includeAssets: ['offline.html'],
+      workbox: {
+        navigateFallback: '/offline.html',
+      } 
+    }),
+  ],
   server: {
     proxy: {
       '/wp-json': {
