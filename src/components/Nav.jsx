@@ -62,6 +62,7 @@ const Nav = ({ selected, setSelected, navigate }) => {
 
       {subCategories.length > 0 && (
         <ul className='subCategories' ref={subCategoriesRef}>
+          <div className="transparent-blur"></div>
           {subCategories.map((subCategory) => (
             <li 
               key={subCategory.id}
