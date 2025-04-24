@@ -39,7 +39,7 @@ form {
         display: none;
     }
 
-    .login-submit {
+    .submit {
         .button {
           display: flex;
           align-items: center; // ✅ Centre verticalement le contenu
@@ -56,5 +56,9 @@ form {
           margin: auto;
         }
       }
+    
+    .login-remember {
+        text-decoration: underline;
+    }
       
 }

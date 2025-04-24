@@ -11,6 +11,14 @@ const Article = () => {
   const [post, setPost] = useState(null);
   const [loading, setLoading] = useState(true);
 
+  function formatEuropean(dateString) {
+    const [datePart, timePart] = dateString.split('T');
+    const [year, month, day] = datePart.split('-');
+    const [hour, minute, second] = timePart.split(':');
+  
+    return `${day}/${month}/${year} à ${hour}:${minute}:${second}`;
+  }
+  
   useEffect(() => {
     const loadPost = async () => {
       try {
@@ -42,7 +50,7 @@ const Article = () => {
       <div>{parse(post.content.rendered, htmlParserOptions)}</div>
       {post.categories.includes(54)|| post.categories.includes(94) ? 
         <div id='foot'>
-          <p id="date">{post.date}</p>
+          <p id="date">{formatEuropean(post.date)}</p>
           <Comments postId={postId} /> 
         </div>
         : null}

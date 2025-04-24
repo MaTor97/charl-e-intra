@@ -1,58 +1,55 @@
 import React, { useState } from 'react';
-import { fetchLogin } from '../assets/files/functions/fetchLogin';
-import parse from 'html-react-parser';
-import { htmlParserOptions } from '../assets/files/options';
 
-const Account = () => {
+
+const LoginForm = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [htmlContent, setHtmlContent] = useState('');
+  const [userInfo, setUserInfo] = useState(null);
   const [error, setError] = useState('');
-  const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e) => {
-    e.preventDefault(); 
-    setLoading(true);
-    setError('');
-    setHtmlContent('');
+    e.preventDefault(); // ⛔ Important ! Sinon le formulaire recharge la page
 
     try {
-      const res = await fetchLogin('custom-ad/v1/login', {
-        body: {
+      const response = await fetch('https://intradev.acc-vdc.be/wp-json/custom-ad/v1/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
           username,
           password
-        }
+        })
       });
-      console.log(res)
-      if (typeof res === 'string') {
-        const doc = new DOMParser().parseFromString(res, 'text/html');
-        const loginTabsWrapper = doc.querySelector('.login-tabs-wrapper');
-        const bodyContent = loginTabsWrapper ? loginTabsWrapper.innerHTML : '';
-        setHtmlContent(bodyContent);
-      } else {
-        console.log('Réponse JSON :', res);
+
+      console.log(response)
+
+      if (!response.ok) {
+        throw new Error('Échec de l\'authentification');
       }
 
+      const data = await response.json();
+      console.log('Réponse du serveur :', data);
+
+      // Stocker le token s'il est renvoyé
+      if (data.token) {
+        localStorage.setItem('token', data.token);
+      }
+
+      setUserInfo(data.user || data); // selon le format de ta réponse
+      setError('');
     } catch (err) {
-      console.error('Erreur lors de la récupération des données:', err);
-      setError('Erreur de connexion ou de récupération du contenu.');
-    } finally {
-      setLoading(false);
+      setError(err.message);
+      setUserInfo(null);
     }
   };
 
   return (
-    <div>
+    <main>
       <p>Bienvenue sur l’application <strong>Intranet Mobile</strong> conçue pour vous offrir une navigation fluide parmi les articles et les différentes catégories d’actualités de la ville de Charleroi.</p>
       <p>Grâce à cette application, vous recevrez également des notifications importantes directement sur votre appareil.</p>
       <p>Pour accéder à l’ensemble de ces fonctionnalités, veuillez vous connecter avec votre compte d’agent de la Ville de Charleroi</p>
-
-      <form
-        name="loginform"
-        id="loginform"
-        method="post"
-        onSubmit={handleSubmit}
-        >
+      <form onSubmit={handleSubmit}>
         <p className="login-username">
           <label htmlFor="user">Identifiant ou adresse e-mail</label>
           <input
@@ -64,7 +61,7 @@ const Account = () => {
             name="log"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
-            />
+          />
         </p>
         <p className="login-password">
           <label htmlFor="pass">Mot de passe</label>
@@ -78,45 +75,23 @@ const Account = () => {
             name="pwd"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            />
-        </p>
-        <p className="login-remember">
-          <label>
-            <input
-              id="rememberme"
-              type="checkbox"
-              value="forever"
-              name="rememberme"
-              defaultChecked
-              />
-            Se souvenir de moi
-          </label>
-        </p>
-        <p className="login-submit">
-          <input
-            id="wp-submit"
-            className="button button-primary"
-            type="submit"
-            value={loading ? "Connexion..." : "Se connecter"}
-            name="wp-submit"
-            disabled={loading}
-            />
-          <input
-            type="hidden"
-            name="redirect_to"
-            value="https://intradev.acc-vdc.be"
           />
         </p>
+        <p className="login-remember">
+          J'ai oublié mon mot de passe
+        </p>
+        <button type="submit">ME CONNECTER</button>
       </form>
-      {error && <p style={{ color: 'red' }}>{error}</p>}
 
-      {htmlContent && (
+      {error && <p style={{ color: 'red' }}>{error}</p>}
+      {userInfo && (
         <div>
-          {parse(htmlContent, htmlParserOptions)}
+          <h3>Bienvenue, {userInfo.name || userInfo.login}</h3>
+          <p>Email : {userInfo.email}</p>
         </div>
       )}
-    </div>
+    </main>
   );
 };
 
-export default Account;
+export default LoginForm;
