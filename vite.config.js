@@ -30,6 +30,21 @@ export default defineConfig({
             type: 'image/png',
           },
         ],
+        "screenshots": [
+          {
+            "src": "/screenshots/home.png",
+            "sizes": "390x844",
+            "type": "image/png",
+            "form_factor": "wide",
+            "label": "Accueil de l'application"
+          },
+          {
+            "src": "/screenshots/mobile.png",
+            "sizes": "390x844",
+            "type": "image/png",
+            "label": "Vue mobile"
+          }
+        ]
       },
       includeAssets: ['offline.html'],
       workbox: {
