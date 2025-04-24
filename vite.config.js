@@ -12,8 +12,8 @@ export default defineConfig({
         enabled: true,
       },
       manifest: {
-        name: 'Mon Application PWA',
-        short_name: 'MonPWA',
+        name: 'Charleroi Intranet',
+        short_name: 'Charl-e',
         description: 'Une Progressive Web App créée avec Vite et React.',
         theme_color: '#ffffff',
         background_color: '#ffffff',
