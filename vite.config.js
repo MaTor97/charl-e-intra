@@ -8,13 +8,10 @@ export default defineConfig({
     react(),
     VitePWA({
       registerType: 'autoUpdate',
-      devOptions : {
-        enabled: true,
-      },
       manifest: {
         name: 'Charleroi Intranet',
         short_name: 'Charl-e',
-        description: 'Une Progressive Web App créée avec Vite et React.',
+        description: 'Application Intranet de la ville de Charleroi.',
         theme_color: '#ffffff',
         background_color: '#ffffff',
         display: 'standalone',
@@ -49,6 +46,10 @@ export default defineConfig({
       includeAssets: ['offline.html'],
       workbox: {
         navigateFallback: '/offline.html',
+        navigateFallbackDenylist: [
+          /^\/wp-json\//, // ne pas intercepter les appels API
+          /\/assets\//,   // ne pas intercepter les assets
+        ],
       } 
     }),
   ],
