@@ -68,7 +68,7 @@ const App = () => {
 
   return (
     <div>
-      <Header navigate={navigate} handleNavigation />
+      <Header navigate={navigate} handleNavigation={handleNavigation} />
       <div className="navigation">
         <h2>Catégories</h2>
         <Nav selected={selected} setSelected={setSelected} navigate={navigate}/>
