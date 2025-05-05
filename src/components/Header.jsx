@@ -20,10 +20,11 @@ const Header = ({ navigate, handleNavigation }) => {
 
   return (
     <header>
-      {/* Le logo ramène vers la page d'accueil */}
+      {/* LOGO */}
       <div className="logo" onClick={() => handleNavigation("/posts?categories=66")}>
         <LogoSVG className="icons" id="logo" />
       </div>
+      {/* BARRE DE RECHERCHE */}
       <div className="searchBar">
         <input
           type="text"

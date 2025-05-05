@@ -1,6 +1,7 @@
 import { fetchURL } from "./fetch"
 import { reorderNav } from "./reorderNav"
 
+// FONCTION POUR VERIFIER SI UNE CATEGORIE A DES ENFANTS
 export const main = async () => {
   let categories = await fetchURL("categories?parent=0");
   categories = reorderNav(categories);

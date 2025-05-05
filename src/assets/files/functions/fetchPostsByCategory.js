@@ -1,5 +1,6 @@
 import { fetchURL } from './fetch';
 
+// AVOIR LES POSTS (article, pdf, docs,.. )
 export const fetchPostsByCategory = async (categoryId) => {
   try {
     return await fetchURL(`posts?categories=${categoryId}`);

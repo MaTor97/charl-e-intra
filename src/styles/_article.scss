@@ -1,3 +1,4 @@
+// CONTENU D'UN POST
 main {
     position: sticky;
     width: 100%;
@@ -17,22 +18,26 @@ main {
     margin-bottom: 2rem;
     overflow: hidden;
 
+    // ELEMENTS
     li {
       list-style-type: none;
     }
 
+    // TITRES
     h1 {
       text-align: center;
       margin: 1rem;
       font-family: $font-tstarpro-bold;
     }
 
+    // IMAGES
     img {
       max-width: 500px;
       height: auto;
       border-radius: 20px;
     }
 
+    // PARAGRAPHES
     p {
       max-width: 500px;
       margin: auto;
@@ -40,6 +45,7 @@ main {
       font-family: $font-tstarpro-regular;
     }
 
+    // LIENS
     a {
       cursor: pointer;
       z-index: 10000;
@@ -49,6 +55,7 @@ main {
       font-weight: 800;
     }
 
+    // COMMENTAIRE AVEC DATE QUAND IL Y EN A
     #foot {
       width: 100%;
 
@@ -60,6 +67,7 @@ main {
       }
     }
 
+    // FICHIER DANS UN BLOC WORD PRESSE
     .wp-block-file {
       border: 1px solid var(--primary-color);
       border-radius: .5rem;
@@ -85,6 +93,7 @@ main {
       padding: 10px;
     }
 
+    // TABLEAU
     .wp-block-table {
       width: 100%;
 

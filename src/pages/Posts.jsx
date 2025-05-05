@@ -5,6 +5,8 @@ import { LogoSVG, EmptySVG } from '../assets/files/SVG';
 import { getPostImage } from '../assets/files/functions/getPostImage';
 import { stripHtml, decodeHtml } from '../assets/files/functions/cleanHTML'; 
 
+// Pages Posts, elles permette d'afficher tous les articles disponnibles dans une catégorie ou son contenu si il n'y en a pas,
+// elles apparaissent en cliquant sur une catégorie du nav
 const Posts = ({ navigate }) => {
   const [searchParams] = useSearchParams();
   const categoryId = searchParams.get('categories');
@@ -13,27 +15,35 @@ const Posts = ({ navigate }) => {
   const [images, setImages] = useState({});
   const [loading, setLoading] = useState(true);
 
+  // Initialise la catéogrie quand la page est appellée
   useEffect(() => {
     const loadPosts = async () => {
       setLoading(true);
       try {
         let data = [];
 
+        // Se sert de fetchPostsByCategory pour aller chercher l'url wp /posts?categories={categoryId}
         if (categoryId) {
           data = await fetchPostsByCategory(categoryId);
         } else if (searchQuery) {
+          // Gère la recherche
           const response = await fetch(`https://intranetprod2.acc-vdc.be/wp-json/wp/v2/posts?search=${encodeURIComponent(searchQuery)}`);
           data = await response.json();
         }
 
         setPosts(data);
 
+        // Va chercher l'url de l'image dans wp:featuredmedia
         const imagePromises = data.map(async (post) => {
           const imageUrl = await getPostImage(post);
           return { id: post.id, imageUrl };
         });
 
+        // Attend la fin de toutes les promesses
         const resolvedImages = await Promise.all(imagePromises);
+
+        // On transforme le tableau d'objets { id, imageUrl } en un objet
+        // dont les clés sont les identifiants des posts, et les valeurs les URLs des images
         const imagesObj = resolvedImages.reduce((acc, { id, imageUrl }) => {
           acc[id] = imageUrl;
           return acc;
@@ -55,6 +65,7 @@ const Posts = ({ navigate }) => {
   if (posts.length < 1) {
     return (
       <div className='EmptyArticles'>
+        {/* GESTION DU POST VIDE */}
         <EmptySVG />
         <p>Aucun article trouvé.</p>
         <button onClick={() => navigate("/posts?categories=66")}>Retour à l'accueil</button>
@@ -64,19 +75,23 @@ const Posts = ({ navigate }) => {
 
   return (
     <ul className='articles'>
+      {/* AFFICHAGE DE LA LISTE DE POSTS */}
       {posts.map((post) => (
         <div 
           key={post.id} 
           className="article" 
           onClick={() => navigate(`/posts/${post.id}`)}
         >
+          {/* IMAGE */}
           {images[post.id] && /\.(jpe?g|png|webp)$/i.test(images[post.id]) ? (
             <img src={images[post.id]} alt="Post" />
           ) : (
             <div className="defaultImage">
+              {/* IMAGE PAR DEFAUT SI PAS D'IMAGE */}
               <LogoSVG />
             </div>
           )}
+          {/* TITRE */}
           <h2>{stripHtml(decodeHtml(post.title.rendered))}</h2>
         </div>
       ))}

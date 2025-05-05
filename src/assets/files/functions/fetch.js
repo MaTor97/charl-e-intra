@@ -1,3 +1,4 @@
+// SE CONNECTE A L'API
 export const fetchURL = async (endpoint) => {
   try {
     const response = await fetch('https://intranetprod2.acc-vdc.be/wp-json/wp/v2/' + endpoint);

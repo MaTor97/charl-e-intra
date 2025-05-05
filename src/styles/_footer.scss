@@ -8,7 +8,7 @@ footer {
     border-top: 1px solid black;
     z-index: 10000;
 
-    
+    // CONTOUR DE L'ICONE
     .cont {
         color: var(--text-color-one);
         text-align: center;
@@ -24,10 +24,12 @@ footer {
         padding: .2rem;
         margin: .3rem;
 
+        // ICONES
         svg {
             cursor: pointer;
         }
 
+        // TEXTES SOUS LES ICONES
         p {
             font-family: $font-tstarpro-bold;
             font-size: 12px;
@@ -38,6 +40,7 @@ footer {
 
     }
 
+    // ICONES CLIQUEES
     .selected {
         color: var(--secondary-color);
         background-color: var(--primary-color);
@@ -53,10 +56,12 @@ footer {
         padding: .2rem;
         margin: .3rem;
 
+        // ICONES
         svg {
             cursor: pointer;
         }
 
+        // TEXTE SOUS LES ICONES
         p {
             font-family: $font-tstarpro-bold;
             font-size: 12px;

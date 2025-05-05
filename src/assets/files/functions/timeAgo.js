@@ -1,3 +1,4 @@
+// Recois la date de publication d'un article et la transforme en il y a..
 export const timeAgo = (dateString) => {
         const now = new Date();
         const past = new Date(dateString);

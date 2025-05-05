@@ -26,6 +26,7 @@ nav {
             cursor: pointer;
         }
 
+        // CLASSE POUR MONTRER QUE LA CATEGORIE EST CLIQUEE
         .selected {
             background-color: var(--primary-color);
             color: var(--secondary-color);

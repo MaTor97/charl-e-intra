@@ -50,6 +50,7 @@ export const htmlParserOptions = {
         );
       }
 
+      // DOC (word)
       else if (href.endsWith('.doc')) {
         return (<a
           href={href}

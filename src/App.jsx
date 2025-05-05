@@ -1,6 +1,6 @@
 // App.jsx est le coeur de l'application,
 // Il affiche et les composants et suis les routes des pages
-import { Routes, Route, useNavigate } from "react-router-dom";
+import { Routes, Route, useNavigate, Navigate } from "react-router-dom";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Posts from "./pages/Posts";
@@ -68,17 +68,22 @@ const App = () => {
 
   return (
     <div>
+      {/* HEADER */}
       <Header navigate={navigate} handleNavigation={handleNavigation} />
+      {/* CATEGORIES + SOUS-CATEGORIES */}
       <div className="navigation">
         <h2>Catégories</h2>
         <Nav selected={selected} setSelected={setSelected} navigate={navigate}/>
       </div>
+      {/* ROUTES -> CONTENU DE LA PAGE */}
       <Routes>
+        <Route path="/" element={<Navigate to="/posts?categories=66" replace />} />
         <Route path="/posts" element={<Posts navigate={navigate}/>} />
         <Route path="/posts/:postId" element={<Article />} />
         <Route path='/Notifications' element={<Notifications />} />
         <Route path='/Account' element={<Account />} />
       </Routes>
+      {/* FOOTER */}
       <Footer 
         navigate={navigate} 
         goBack={goBack} 

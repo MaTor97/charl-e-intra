@@ -7,7 +7,7 @@ const Nav = ({ selected, setSelected, navigate }) => {
   const [subCategories, setSubCategories] = useState([]);
   const subCategoriesRef = useRef(null);
 
-
+  // Initialise le nav avec ses catégories, sous-catégories et gère les cliques
   useEffect(() => {
     const loadCategories = async () => {
       const data = await fetchTopCategories();
@@ -15,6 +15,7 @@ const Nav = ({ selected, setSelected, navigate }) => {
     };
     loadCategories();
 
+    // Gestion du clique hors des sous catégories pour faire disparaitre le menu
     const handleClickOutside = (event) => {
       if (
         subCategoriesRef.current &&
@@ -30,6 +31,7 @@ const Nav = ({ selected, setSelected, navigate }) => {
     };
   }, []);
 
+  // Gestion du clique sur les catégories
   const handleCategoryClick = async (category) => {
     setSelected(category.id);
     const data = await fetchURL(`categories?parent=${category.id}`);
@@ -41,6 +43,7 @@ const Nav = ({ selected, setSelected, navigate }) => {
     }
   };
 
+  // Gestion du clique sur les sous catégories
   const handleSubCategoryClick = (subCategory) => {
     setSubCategories([]); 
     navigate(`/posts?categories=${subCategory.id}`);
@@ -48,6 +51,7 @@ const Nav = ({ selected, setSelected, navigate }) => {
 
   return (
     <nav>
+      {/* CATEGORIES */}
       <ul>
         {categories.map((category) => (
           <li 
@@ -60,6 +64,7 @@ const Nav = ({ selected, setSelected, navigate }) => {
         ))}
       </ul>
 
+      {/* SOUS CATEGORIES*/}  
       {subCategories.length > 0 && (
         <ul className='subCategories' ref={subCategoriesRef}>
           <div className="transparent-blur"></div>
@@ -71,6 +76,7 @@ const Nav = ({ selected, setSelected, navigate }) => {
                 {subCategory.name}
             </li>
           ))}
+            {/* FOND DU SOUS MENU TRANSPARENT */}
             <li id='fond' onClick={() => setSubCategories([])}></li>
         </ul>
       )}

@@ -1,3 +1,4 @@
+// RESET LA PAGE
 * {
     margin: 0;
     padding: 0;
@@ -20,7 +21,8 @@ body {
         border-radius: .2rem;
         background-color: var(--secondary-color);
       }
-
+    
+    // MENU CATEGORIES
     .navigation {
         position: sticky;
         top: 0;

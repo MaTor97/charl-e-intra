@@ -1,3 +1,4 @@
+// BLOC DES COMMENTAIRES
 .commentBox {
     padding-bottom: 1.5rem;
     width: 100%;
@@ -5,6 +6,7 @@
     flex-direction: column;
     align-items: center;
 
+    // TITRE
     #title {
       width: 25rem;
       font-family: $font-tstarpro-heavy;
@@ -13,17 +15,20 @@
       text-align: left;
     }
     
+    // CONTENU DU COMENTAIRE
     .comment {
       width: 25rem;
       margin: 7.5px;
       background-color: var(--bckgd);
       border-radius: .5rem;
 
+      // PHOTO DE PROFIL DU COMMENTATEUR
       img {
         width: 3rem;
         height: 3rem;
       }
 
+      // NOM DU COMMENTATEUR + PUBLIE IL Y A..
       .user {
         width: 100%;
         display: flex;
@@ -37,6 +42,8 @@
           font-size: .8rem;
         } 
       }
+
+      // TEXTE DU COM
       #comContent {
         p {
           text-align: left;
@@ -44,6 +51,7 @@
       }
     }
 
+    // AJOUTER UN COMMENTAIRE
     textarea {
       width: 25rem;
       border-radius: .5rem;
@@ -58,9 +66,10 @@
 
       &::placeholder {
         color: var(--title-color);
-    }
+      }
     }
 
+    // ENVOYER
     button {
       border-color: var(--text-color-one);
       color: var(--text-color-one)

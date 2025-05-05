@@ -1,5 +1,7 @@
+// Ce Component, stocke toutes les images en SVG qui serve a naviguer dans l'app
 import React from "react";
 
+// LOGO
 export const LogoSVG = () => {
     return (
         <svg 
@@ -121,6 +123,7 @@ export const LogoSVG = () => {
     );
 }
 
+// LIGHT MODE
 export const LightModeSVG = () => {
     return (
         <svg 
@@ -138,6 +141,7 @@ export const LightModeSVG = () => {
     );
 }
 
+// DARK MODE
 export const DarkModeSVG = () => {
     return (
         <svg 
@@ -155,7 +159,7 @@ export const DarkModeSVG = () => {
     );
 }
 
-
+// ICONE DE RECHERCHE
 export const SearchSVG = () => {
     return (
         <svg 
@@ -173,6 +177,7 @@ export const SearchSVG = () => {
     );
 }
 
+// RETOUR EN ARRIERE
 export const ArrowLeftSVG = () => {
     return (
         <svg 
@@ -189,6 +194,7 @@ export const ArrowLeftSVG = () => {
     );
 }
 
+// ICONE NOTIFS
 export const NotificationSVG = () => {
     return (
         <svg 
@@ -210,7 +216,7 @@ export const NotificationSVG = () => {
     );
 }
 
-
+// ICONE LOGIN
 export const AccountSVG = () => {
     return (
         <svg 
@@ -247,6 +253,7 @@ export const AccountSVG = () => {
     );
 }
 
+// IMAGE PAGE VIDE
 export const EmptySVG = () => {
     return (
         <svg 
@@ -275,6 +282,7 @@ export const EmptySVG = () => {
     );
 }
 
+// MOT DE PASSE OUBLIE
 export const MDPForgetSVG = () => {
     return (
         <svg 
