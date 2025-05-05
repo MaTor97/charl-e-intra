@@ -1,13 +1,9 @@
 
 import { ArrowLeftSVG, NotificationSVG, AccountSVG, DarkModeSVG, LightModeSVG } from "../assets/files/SVG";
 
-const Footer = ({ bodyMode, toggleMode, goBack, navigate, selected, setSelected }) => {
+const Footer = ({ bodyMode, toggleMode, goBack, navigate, selected, handleNavigation }) => {
 
-
-    const handleNavigation = (endpoint) => {
-        setSelected(endpoint);
-        navigate(endpoint);
-    }
+    
 
     return (
         <footer>

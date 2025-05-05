@@ -1,3 +1,5 @@
+// App.jsx est le coeur de l'application,
+// Il affiche et les composants et suis les routes des pages
 import { Routes, Route, useNavigate } from "react-router-dom";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -15,10 +17,13 @@ const App = () => {
   const [subCategoriesPages, setSubCategoriesPages] = useState([]);
   const [selected, setSelected] = useState(66);
 
+
   const [bodyMode, setBodyMode] = useState(() => {
     return document.body.classList.contains('dark') ? 'dark' : 'light';
   });
 
+  // Fonction pour gérer le body mode et le passer de light a dark
+  // elle est appellée onClick sur l'icone dans le footer
   const toggleMode = () => {
     setBodyMode(prevMode => {
       const newMode = prevMode === 'light' ? 'dark' : 'light';
@@ -28,12 +33,19 @@ const App = () => {
     });
   };
 
+  // Retour à la page précédente
   const goBack = () => {
     window.history.back();
     setSelected('')
   }
 
+  // Renvoie vers la route "endpoint" et change la bckgrd-color de l'élément
+  const handleNavigation = (endpoint) => {
+    setSelected(endpoint);
+    navigate(endpoint);
+  }
 
+  // Initialise la page d'accueil
   useEffect(() => {
     // Si l'URL est simplement "/posts", redirige vers "/posts?categories=66"
     if (window.location.pathname === "/" && !window.location.search) {
@@ -49,13 +61,14 @@ const App = () => {
     fetchData();
   }, [navigate]); // Ajoute "navigate" dans les dépendances du useEffect
 
+  // Initialise le bodyMode
   useEffect(() => {
     document.body.classList.add(bodyMode);
   }, [bodyMode]);
 
   return (
     <div>
-      <Header navigate={navigate} />
+      <Header navigate={navigate} handleNavigation />
       <div className="navigation">
         <h2>Catégories</h2>
         <Nav selected={selected} setSelected={setSelected} navigate={navigate}/>
@@ -72,7 +85,7 @@ const App = () => {
         bodyMode={bodyMode} 
         toggleMode={toggleMode} 
         selected={selected} 
-        setSelected={setSelected}
+        handleNavigation={handleNavigation}
         />
     </div>
   );

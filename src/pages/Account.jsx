@@ -11,7 +11,7 @@ const LoginForm = () => {
     e.preventDefault(); // ⛔ Important ! Sinon le formulaire recharge la page
 
     try {
-      const response = await fetch('https://intradev.acc-vdc.be/wp-json/wp/v2/custom-ad/login', {
+      const response = await fetch('https://intradev.acc-vdc.be/wp-json/simple-jwt-login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
