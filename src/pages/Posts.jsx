@@ -15,6 +15,13 @@ const Posts = ({ navigate }) => {
   const [images, setImages] = useState({});
   const [loading, setLoading] = useState(true);
 
+  // Extraire l'id de la video Youtube
+  const extractYouTubeId = (html) => {
+    const match = html.match(/(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/watch\?v=|youtu\.be\/)([^\s"&?<>]+)/);
+    return match ? match[1] : null;
+  };
+  
+
   // Initialise la catéogrie quand la page est appellée
   useEffect(() => {
     const loadPosts = async () => {
@@ -83,7 +90,21 @@ const Posts = ({ navigate }) => {
           onClick={() => navigate(`/posts/${post.id}`)}
         >
           {/* IMAGE */}
-          {images[post.id] && /\.(jpe?g|png|webp)$/i.test(images[post.id]) ? (
+          { post.categories.includes(180) || post.categories.includes(94) ? 
+            (() => {
+              const videoId = extractYouTubeId(post.excerpt.rendered);
+              return videoId ? (
+                <img
+                  src={`https://img.youtube.com/vi/${videoId}/hqdefault.jpg`}
+                  alt="YouTube Thumbnail"
+                />
+              ) : (
+                <div className="defaultImage">
+                  <LogoSVG />
+                </div>
+              );
+            })()
+          : images[post.id] && /\.(jpe?g|png|webp)$/i.test(images[post.id]) ? (
             <img src={images[post.id]} alt="Post" />
           ) : (
             <div className="defaultImage">

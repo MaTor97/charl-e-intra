@@ -1,6 +1,7 @@
 // App.jsx est le coeur de l'application,
 // Il affiche et les composants et suis les routes des pages
-import { Routes, Route, useNavigate, Navigate } from "react-router-dom";
+import { Routes, Route, useNavigate } from "react-router-dom";
+import RedirectToDefaultPosts from "./assets/files/RedirectToDefaultPosts";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Posts from "./pages/Posts";
@@ -47,12 +48,6 @@ const App = () => {
 
   // Initialise la page d'accueil
   useEffect(() => {
-    // Si l'URL est simplement "/posts", redirige vers "/posts?categories=66"
-    if (window.location.pathname === "/" && !window.location.search) {
-      navigate("/posts?categories=66");
-      setSelected(66)
-    }
-
     const fetchData = async () => {
       const data = await main(); // Récupère les ID avec enfants
       setSubCategoriesPages(data);
@@ -77,7 +72,7 @@ const App = () => {
       </div>
       {/* ROUTES -> CONTENU DE LA PAGE */}
       <Routes>
-        <Route path="/" element={<Navigate to="/posts?categories=66" replace />} />
+        <Route path="/" element={<RedirectToDefaultPosts />} />
         <Route path="/posts" element={<Posts navigate={navigate}/>} />
         <Route path="/posts/:postId" element={<Article />} />
         <Route path='/Notifications' element={<Notifications />} />
