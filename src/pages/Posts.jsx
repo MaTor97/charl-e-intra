@@ -84,7 +84,7 @@ const Posts = ({ navigate }) => {
     <ul className='articles'>
       {/* AFFICHAGE DE LA LISTE DE POSTS */}
       {posts.map((post) => (
-        <div 
+        <li 
           key={post.id} 
           className="article" 
           onClick={() => navigate(`/posts/${post.id}`)}
@@ -114,7 +114,7 @@ const Posts = ({ navigate }) => {
           )}
           {/* TITRE */}
           <h2>{stripHtml(decodeHtml(post.title.rendered))}</h2>
-        </div>
+        </li>
       ))}
     </ul>
   );
